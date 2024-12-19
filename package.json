@@ -1,9 +1,9 @@
 {
-  "name": "Itsuki-Nakano",
+  "name": "Alya-Kujou",
   "author": "Hady Zen",
-  "description": "Itsuki-Nakano Messegger AI Bot",
+  "description": "Chatbot messenger by hady",
   "version": "1.0.0",
-  "main": "itsuki.js",
+  "main": "Alya.js",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {},
@@ -22,6 +22,6 @@
     "websocket-stream": "^5.5.2"
   },
   "scripts": {
-    "start": "node itsuki.js"
+    "start": "node Alya.js"
   }
 }
