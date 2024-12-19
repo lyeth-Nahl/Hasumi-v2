@@ -1,6 +1,6 @@
 const { spawn } = require("child_process");
 
-function startProject() {
+function hady() {
   const child = spawn("npm start", {
     cwd: __dirname,
     stdio: "inherit",
@@ -9,9 +9,9 @@ function startProject() {
 
   child.on("close", (code) => {
     if (code == 2) {
-      startProject();
+      hady();
     }
   });
 }
 
-startProject();
+hady();
