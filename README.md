@@ -17,7 +17,7 @@
 ## INSTALL ♡
 
 • download kiwi browser in play store <br />
-• open https://glitch.com in kiwi browser <br />
+• open your host in kiwi browser <br />
 • create new project <br>
 • import or open terminal
 ```import
