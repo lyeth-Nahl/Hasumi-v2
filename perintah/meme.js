@@ -20,8 +20,8 @@ img.onload = () => {
   const ctx = canvas.getContext('2d');
   ctx.drawImage(img, 0, 0);
 
-  const foto = canvas.toDataURL('image/jpeg');
-
+  var foto = canvas.toDataURL('image/jpeg');
+};
   api.sendMessage({ attachment:  foto }, event.threadID, event.messageID);
 } catch (futaro) { 
   console.log(futaro);
