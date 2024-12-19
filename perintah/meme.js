@@ -5,6 +5,7 @@ module.exports = {
   
     Alya: async function(api, event) {
       try { 
+       const fs = require('fs');
        const axios = require('axios');
         const meme = await axios.get("https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/meme.json");
         const itsuki = meme.data;
@@ -13,8 +14,11 @@ module.exports = {
       responseType: 'arraybuffer', 
     });
 
-    const foto = response.data;
-  api.sendMessage({ attachment:  foto }, event.threadID, event.messageID);
+    const wle = response.data;
+    fs.writeFileSync('foto.png', wle);
+    const foto = fs.readFileSync('foto.png');
+  api.sendMessage({ attachment: foto }, event.threadID, event.messageID);
+     fs.unlinkSync('foto.png');
 } catch (futaro) { 
   console.log(futaro);
 }
