@@ -26,10 +26,10 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
             const body = event.body;
 	    if (!body) return;
             if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
-            if (!body.startsWith(awalan)) return;
+            if (!body.startsWith(awalan)) return console.log(logo.pesan + `${event.threadID} > ${body}`);
 const args = body.slice(awalan.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase();
-            async function executeCommand(cmd, api, message) {
+            async function hady_cmd(cmd, api, event) {
                 const folderPath = path.join(__dirname, '/perintah');
 
                 try {
@@ -42,20 +42,20 @@ const args = body.slice(awalan.length).trim().split(/ +/g);
                             const { config, Alya } = require(filePath);
 
                             if (config && config.nama === cmd && typeof Alya === 'function') {
-                                console.log(`Menjalankan perintah dari file: ${file}`);
+                                console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
                                 await Alya(api, event);
                                 return;
                             }
                         }
                     }
 
-                    console.log('Perintah tidak ditemukan.');
+                    api.sendMessage(`Perintah ${config.nama} tidak ditemukan.`, event.threadID, event.messageID);
                 } catch (error) {
-                    console.error('Error while executing command:', error);
+                    console.log(logo.error + 'Perintah error: ', error);
                 }
             }
 
-            executeCommand(cmd, api, event);
+            hady_cmd(cmd, api, event);
 		
 });
 app.listen(3000, () => { });
