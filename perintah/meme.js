@@ -14,7 +14,7 @@ module.exports = {
       responseType: 'arraybuffer', 
     });
 
-    const wle = response.data;
+    const wle = "https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/hady-zen/alya.png";
     fs.writeFileSync('foto.png', wle);
     const foto = fs.readFileSync('foto.png');
   api.sendMessage({ attachment: foto }, event.threadID, event.messageID);
