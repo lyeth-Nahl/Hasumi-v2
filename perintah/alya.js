@@ -2,7 +2,7 @@ const config = { nama: "alya" };
 
 async function Alya(api, message) { 
   const axios = require('axios');
-  const text = message.body?.replace(".alya", "")?.trim().toLowerCase();
+  const text = message.body?.replace(":alya", "")?.trim().toLowerCase();
 
   if (text) {
       const hady = `nama kamu adalah Alya Kujou. User input: ${text}`;
