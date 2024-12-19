@@ -2,7 +2,7 @@
 
 <h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ♡</h1>
 
-• Personal Chatbot messenger by hady and saveng <br />
+> Personal Chatbot messenger by hady and saveng <br />
 
 ## 𝗔𝗗𝗠𝗜𝗡 ♡
 
