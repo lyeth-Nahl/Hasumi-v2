@@ -26,7 +26,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
             const body = event.body;
 	    if (!body) return;
             if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
-            if (!body.startsWith(awalan)) return console.log(logo.pesan + `${event.threadID} > ${body}`);
+            if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
 const args = body.slice(awalan.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase();
             async function hady_cmd(cmd, api, event) {
