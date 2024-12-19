@@ -28,25 +28,24 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
             if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
             if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
 const args = body.slice(awalan.length).trim().split(/ +/g);
-        const cmd = args.shift().toLowerCase();
+                const cmd = args.shift().toLowerCase();
             async function hady_cmd(cmd, api, event) {
                 const folderPath = path.join(__dirname, '/perintah');
 
                 try {
-                    const files = fs.readdirSync(folderPath);
+                const files = fs.readdirSync(folderPath);
 
                     for (const file of files) {
-                        if (file.endsWith('.js')) {
-                            const filePath = path.join(folderPath, file);
+             if (file.endsWith('.js')) {
+                 const filePath = path.join(folderPath, file);
+                 var { config, Alya } = require(filePath);
 
-                            const { config, Alya } = require(filePath);
-
-                            if (config && config.nama === cmd && typeof Alya === 'function') {
-                                console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
-                                await Alya(api, event);
-                                return;
-                            }
-                        }
+              if (config && config.nama === cmd && typeof Alya === 'function') {
+                 console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
+                  await Alya(api, event);
+                 return;
+                      }
+                     }
                     }
 
                     api.sendMessage(`Perintah ${config.nama} tidak ditemukan.`, event.threadID, event.messageID);
