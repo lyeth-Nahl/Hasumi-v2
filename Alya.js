@@ -6,7 +6,7 @@
 	const fs = require("fs");
 	const path = require("path");
 	const akun = fs.readFileSync('akun.txt', 'utf8');
-	const { awalan } = require('./config.json');
+	const { awalan, nama } = require('./config.json');
  
 console.log(warna.biru + `
 ▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█
@@ -20,12 +20,12 @@ console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
 login({appState: JSON.parse(fs.readFileSync('akun.txt', 'utf8'))}, (err, api) => {
 		if(err) return console.log(logo.error + `terjadi kesalahan saat login: ${err}`);
 	api.setOptions({listenEvents: true});
-console.log(logo.login + 'mulai menerima pesan dari pengguna.');
+console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 	  
 		api.listenMqtt((err, event) => {
             const body = event.body;
-            if (!body) return;
-            if (!body.startsWith(awalan)) return;
+            if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
+            if (!body || !body.startsWith(awalan)) return;
 const args = body.slice(awalan.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase();
             async function executeCommand(cmd, api, message) {
