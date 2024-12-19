@@ -24,8 +24,9 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 	  
 		api.listenMqtt((err, event) => {
             const body = event.body;
+	    if (!body) return;
             if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
-            if (!body || !body.startsWith(awalan)) return;
+            if (!body.startsWith(awalan)) return;
 const args = body.slice(awalan.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase();
             async function executeCommand(cmd, api, message) {
