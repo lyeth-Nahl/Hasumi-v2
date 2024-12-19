@@ -21,7 +21,9 @@
 • download kiwi browser in play store <br />
 • open https://glitch.com in kiwi browser <br />
 • create new project 
-• import https://github.com/HadyZen/Itsuki-Nakano or open terminal write: git clone https://github.com/HadyZen/Itsuki-Nakano.git <br />
+• import ```
+https://github.com/HadyZen/Itsuki-Nakano or open terminal write: git clone https://github.com/HadyZen/Itsuki-Nakano.git
+```<br />
 • npm install <br />
 • download: <br />
 • import cookie editor to kiwi extensions <br />
@@ -30,4 +32,4 @@
 • open file akun.text paste your cookie <br />
 • npm start 
 
-# Itsuki nakano ♡# Alya-Kujou
+# Alya-Kujou
