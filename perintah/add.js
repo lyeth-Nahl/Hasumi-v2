@@ -6,7 +6,7 @@ async function Alya(api, event) {
 
   if (text) {
      try { 
-      api.addUserToGroup(text, event.threadID, event.messageID);
+      api.addUserToGroup(text, event.threadID);
      } catch (e) {
        console.log(e);
      }
