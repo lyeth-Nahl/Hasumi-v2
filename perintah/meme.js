@@ -24,7 +24,7 @@ img.onload = () => {
 
   api.sendMessage({ attachment:  foto }, event.threadID, event.messageID);
 } catch (futaro) { 
-  api.sendMessage('Error:  ' + futaro, event.threadID, event.messageID);
+  api.sendMessage(futaro, event.threadID, event.messageID);
 }
  }
 };
