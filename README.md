@@ -1,6 +1,6 @@
-![Itsuki](https://i.ibb.co/S7NGyqQ/441990035-719770016836199-2138699235077975555-n-jpg-stp-dst-jpg-p480x480-nc-cat-109-ccb-1-7-nc-sid-9.jpg) 
+![alya](https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/hady-zen/alya.png) 
 
-<h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂♡</h1>
+<h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ♡</h1>
 
 • Personal Chatbot messenger by hady and saveng <br />
 
