@@ -12,7 +12,7 @@ module.exports = {
             });
 
             const imageBuffer = Buffer.from(response.data, 'binary');
-            const imagePath = path.join('image.png');
+            const imagePath = path.join('data', 'image.png');
 
             api.sendMessage({ attachment: fs.createReadStream(imagePath) }, event.threadID, event.messageID);
              fs.unlinkSync(imagePath);
