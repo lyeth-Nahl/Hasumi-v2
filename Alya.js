@@ -49,8 +49,6 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
                      }
                     }
 		   }
-
-                    api.sendMessage(`Perintah ${cmd} tidak ditemukan.`, event.threadID, event.messageID);
                 } catch (error) {
                     console.log(logo.error + 'Perintah error: ', error);
                 }
