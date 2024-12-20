@@ -4,7 +4,7 @@ module.exports = {
     Alya: async function(api, event) {
         try {
             const axios = require('axios');
-            const fs = require('fs/promises'); // Menggunakan fs/promises untuk operasi asynchronous
+            const fs = require('fs'); // Menggunakan fs/promises untuk operasi asynchronous
             const path = require('path');
             const prompt = event.body?.replace(":flux", "")?.trim().toLowerCase(); // toLowerCase() bukan tolowercase()
 
