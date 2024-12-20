@@ -7,7 +7,7 @@ module.exports = {
             const fs = require('fs');
             const path = require('path');
             const prompt = event.body?.replace(":flux", "")?.trim().toLowerCase();
-            const response = await axios.get(`https://kaiz-apis.gleeze.com/api/flux-1.1-pro?prompt=${encodeURIComponent(prompt)}`, {
+            const response = await axios.get(`https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/hady-zen/alya.png`, {
                 responseType: 'arraybuffer'
             });
 
