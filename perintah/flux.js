@@ -1,27 +1,33 @@
 module.exports = {
-    config: { nama: "flux" },
-
+    config: { nama: "flux" }, 
+        
     Alya: async function(api, event) {
         try {
             const axios = require('axios');
-            const fs = require('fs'); // Menggunakan fs/promises untuk operasi asynchronous
+            const fs = require('fs');
             const path = require('path');
-            const prompt = event.body?.replace(":flux", "")?.trim().toLowerCase(); // toLowerCase() bukan tolowercase()
-
-            const response = await axios.get(`https://raw.githubusercontent.com/hadyzen/alya-kujou/refs/heads/main/hady-zen/alya.png`, {
-                responseType: 'arraybuffer' // responseType, bukan responsetype
+            const prompt = event.body?.replace(":flux", "")?.trim().toLowerCase();
+            
+            // Fetching the image
+            const response = await axios.get('https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/hady-zen/alya.png', {
+                responseType: 'arraybuffer'
             });
 
-            const imageBuffer = Buffer.from(response.data, 'binary'); // Menggunakan Buffer.from, bukan buffer.from
-            const imagePath = path.join(__dirname, 'image.png'); // Menggunakan __dirname untuk path yang benar
+            // Convert to buffer and save as a file
+            const imageBuffer = Buffer.from(response.data, 'binary');
+            const imagePath = path.join(__dirname, 'image.png'); // Save to current directory
 
-            await fs.writeFile(imagePath, imageBuffer); // Menulis buffer ke file secara asynchronous
+            // Write the buffer to a file
+            fs.writeFileSync(imagePath, imageBuffer);
 
-            await api.sendMessage({ attachment: fs.createReadStream(imagePath) }, event.threadID, event.messageID); // Menggunakan threadID dan messageID yang benar
-            await fs.unlink(imagePath); // Menghapus file secara asynchronous
+            // Send the image
+            api.sendMessage({ attachment: fs.createReadStream(imagePath) }, event.threadID, event.messageID, () => {
+                // Delete the image after sending it
+                fs.unlinkSync(imagePath);
+            });
 
         } catch (error) {
-            api.sendMessage(`Error: ${error.message}`, event.threadID, event.messageID); // Menampilkan pesan error yang lebih informatif
+            api.sendMessage(`Error: ${error.message}`, event.threadID, event.messageID);
         }
     }
 };
