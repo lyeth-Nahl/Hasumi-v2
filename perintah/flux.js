@@ -16,15 +16,8 @@ module.exports = {
 
             fs.writeFileSync(imagePath, imageBuffer);
 
-            api.sendMessage({
-                body: "Here's your generated image:",
-                attachment: fs.createReadStream(imagePath)
-            }, event.threadID, event.messageID, (err) => {
-                if (err) {
-                    api.sendMessage('Failed to send the image.', event.threadID, event.messageID);
-                }
-                fs.unlinkSync(imagePath);
-            });
+            api.sendMessage({ attachment: fs.createReadStream(imagePath) }, event.threadID, event.messageID);
+             fs.unlinkSync(imagePath);
 
         } catch (error) {
             api.sendMessage(`Error ${error}`, event.threadID, event.messageID);
