@@ -8,10 +8,7 @@
 	const akun = fs.readFileSync('akun.txt', 'utf8');
 	const { awalan, nama } = require('./config.json');
  
-console.log(warna.biru + `
-▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█
-█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█
-                           v1.00.01\n`);
+console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
 console.log(logo.info + "Chatbot messenger by hady and saveng.");
 	if (!akun || akun.length < 0) {
 console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
