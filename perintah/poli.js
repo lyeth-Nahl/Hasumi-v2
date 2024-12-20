@@ -1,15 +1,15 @@
 module.exports = {
-    config: { nama: "poli" }, 
+    config: { nama: "meme" }, 
         
     Alya: async function(api, event) {
         try {
             const axios = require('axios');
             const fs = require('fs');
             const path = require('path');
-            const text = event.body?.replace(":poli", "")?.trim().toLowerCase();
-             if (!text) return api.sendMessage("Masukkan prompt nya bodo", event.threadID, event.messageID);
-            // Fetching the image
-            const response = await axios.get('https://kaiz-apis.gleeze.com/api/poli?prompt=${encodeURIComponent(text)}', {
+            const meme = await axios.get("https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/meme.json");
+            const itsuki = mrme.data;
+            const hadi = itsuki[Math.floor(Math.random() * itsuki.length)];
+            const response = await axios.get(hadi, {
                 responseType: 'arraybuffer'
             });
 
