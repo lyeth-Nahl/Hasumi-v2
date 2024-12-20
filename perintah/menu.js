@@ -5,16 +5,10 @@ async function Alya(api, message) {
   const folderPath = path.join('./perintah');
 
   try {
-    // Read directory asynchronously
     const files = await fs.readdir(folderPath);
-
-    // Filter for .js files
     const jsFiles = files.filter(file => path.extname(file) === '.js');
-
-    // Sort files alphabetically
     jsFiles.sort();
 
-    // Join file names into a single string, removing the .js extension
     const commandList = jsFiles.map(file => path.basename(file, '.js')).join('\n');
     api.sendMessage(`# Daftar perintah: \n\n${commandList}`, message.threadID, message.messageID);
   } catch (error) {
@@ -22,5 +16,8 @@ async function Alya(api, message) {
   }
 }
 
-const config = { nama: "menu" };
+const config = { 
+  nama: "menu",
+  kuldown: 10
+};
 module.exports = { Alya, config };
