@@ -1,7 +1,7 @@
 module.exports = {
     config: { nama: "flux" },
 
-    alya: async function(api, event) {
+    Alya: async function(api, event) {
         try {
             const axios = require('axios');
             const fs = require('fs/promises'); // Menggunakan fs/promises untuk operasi asynchronous
