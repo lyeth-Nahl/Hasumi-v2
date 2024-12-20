@@ -1,15 +1,15 @@
 module.exports = {
-    config: { nama: "flux" }, 
+    config: { nama: "poli" }, 
         
     Alya: async function(api, event) {
         try {
             const axios = require('axios');
             const fs = require('fs');
             const path = require('path');
-            const prompt = event.body?.replace(":flux", "")?.trim().toLowerCase();
-            
+            const text = event.body?.replace(":poli", "")?.trim().toLowerCase();
+             if (!text) return api.sendMessage("Masukkan prompt nya bodo", event.threadID, event.messageID);
             // Fetching the image
-            const response = await axios.get('https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/hady-zen/alya.png', {
+            const response = await axios.get('https://kaiz-apis.gleeze.com/api/poli?prompt=${encodeURIComponent(text)}', {
                 responseType: 'arraybuffer'
             });
 
