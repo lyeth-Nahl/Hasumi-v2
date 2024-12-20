@@ -21,10 +21,7 @@ module.exports = {
             fs.writeFileSync(imagePath, imageBuffer);
 
             // Send the image
-            api.sendMessage({ attachment: fs.createReadStream(imagePath) }, event.threadID, event.messageID, () => {
-                // Delete the image after sending it
-                fs.unlinkSync(imagePath);
-            });
+            api.sendMessage({ attachment: fs.createReadStream(imagePath) }, event.threadID, event.messageID);
 
         } catch (error) {
             api.sendMessage(`Error: ${error.message}`, event.threadID, event.messageID);
