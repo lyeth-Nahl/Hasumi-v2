@@ -7,7 +7,7 @@ module.exports = {
             const fs = require('fs');
             const path = require('path');
             const meme = await axios.get("https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/meme.json");
-            const itsuki = mrme.data;
+            const itsuki = meme.data;
             const hadi = itsuki[Math.floor(Math.random() * itsuki.length)];
             const response = await axios.get(hadi, {
                 responseType: 'arraybuffer'
