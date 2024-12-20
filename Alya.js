@@ -7,6 +7,7 @@
 	const path = require("path");
 	const akun = fs.readFileSync('akun.txt', 'utf8');
 	const { awalan, nama } = require('./config.json');
+        const { kuldown } = require('./hady-zen/kuldown');
  
 console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
 console.log(logo.info + "Chatbot messenger by hady and saveng.");
@@ -39,9 +40,12 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 
               if (config && config.nama === cmd && typeof Alya === 'function') {
                  console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
-                  await Alya(api, event);
+	     if (kuldown(event.senderID, condig.nama, config.kuldown) == 'hadi') { 
+                 await Alya(api, event);
                  return;
-                      }
+                      } else {
+		     api.sendMessage('Pelan pelan sayank!', event.threadID, event.messageID);
+	              } 
                      }
                     }
 
