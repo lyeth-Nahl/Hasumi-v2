@@ -1,4 +1,7 @@
-const config = { nama: "alya" };
+const config = { 
+  nama: "alya",
+  kuldown: 10
+};
 
 async function Alya(api, message) { 
   const axios = require('axios');
