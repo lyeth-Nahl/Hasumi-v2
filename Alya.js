@@ -40,7 +40,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 
               if (config && config.nama === cmd && typeof Alya === 'function') {
                  console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
-	     if (kuldown(event.senderID, condig.nama, config.kuldown) == 'hadi') { 
+	     if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
                  await Alya(api, event);
                  return;
                       } else {
