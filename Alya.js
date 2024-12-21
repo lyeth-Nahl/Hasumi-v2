@@ -9,7 +9,6 @@
 	const { awalan, nama } = require('./config.json');
         const { kuldown } = require('./hady-zen/kuldown');
 
-console.clear();
 console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
 console.log(logo.info + "Chatbot messenger by hady and saveng.");
 	if (!akun || akun.length < 0) {
