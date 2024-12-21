@@ -1,3 +1,5 @@
+/* HADY ZEN'IN */
+
 let hadi = {};
 
 function kuldown(id, cmd, cd) {
