@@ -1,4 +1,4 @@
-/* HADY ZEN */
+/* HADY ZEN'IN */
 
 function stop() {
   const { logo } = require('./hady-zen/log');
