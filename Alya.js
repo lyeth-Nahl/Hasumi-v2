@@ -59,7 +59,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
             hady_cmd(cmd, api, event);
 		
 });
-app.listen(3000, () => { });
+app.listen(3001, () => { });
 });
 
 app.get('/', (req, res) => { 
