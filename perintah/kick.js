@@ -1,20 +1,19 @@
-const config = { 
+module.exports = { 
+config: { 
   nama: "kick",
-  kuldown: 6
-};
+  penulis: "Hady Zen", 
+  kuldown: 6,
+  peran: 0,
+  tutor: "<id>"
+}, 
 
-async function Alya(api, event) { 
-  const axios = require('axios');
-  const text = event.body?.replace(":kick", "")?.trim().toLowerCase();
+Alya: async function (api, event, args) { 
+ const id = args[0];
 
-  if (text) {
-     try { 
-      api.removeUserFromGroup(text, event.threadID);
-     } catch (e) {
-       console.log(e);
-     }
+  if (id) {
+     api.removeUserFromGroup(text, event.threadID);
   } else {
     return api.sendMessage("Masukkan id nya bodo", event.threadID, event.messageID);
   }
 }
-module.exports = { config, Alya };
+};
