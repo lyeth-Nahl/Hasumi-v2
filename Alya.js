@@ -37,8 +37,8 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 
                     for (const file of files) {
              if (file.endsWith('.js')) {
-                 const file = path.join(folder, file);
-                 const { config, Alya } = require(file);
+                 const anime = path.join(folder, file);
+                 const { config, Alya } = require(anime);
 
               if (config && config.nama === cmd && typeof Alya === 'function') {
                  console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
@@ -52,7 +52,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
                     }
 		   }
                 } catch (error) {
-                    console.log(logo.error + 'Perintah error: ', error);
+                    console.log(logo.error + 'Perintah error: ' + error.message);
                 }
             }
 
