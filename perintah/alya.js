@@ -1,12 +1,13 @@
-const config = { 
+module.exports = {
+config: { 
   nama: "alya",
   penulis: "Hady Zen", 
   kuldown: 10,
-  role: 0,
+  peran: 0,
   tutor: "<pertanyaan>"
-};
+}, 
 
-async function Alya(api, event, args) { 
+Alya: async function (api, event, args) { 
   const axios = require('axios');
   const text = args.join(' ');
 
@@ -22,4 +23,4 @@ async function Alya(api, event, args) {
     return api.sendMessage("Masukkan pesan nya bodo", event.threadID, event.messageID);
   }
 }
-module.exports = { config, Alya };
+};
