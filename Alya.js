@@ -44,24 +44,21 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
               if (config && config.nama === cmd && typeof Alya === 'function') {
                  console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
 	     if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
+  if (config.peran == 0) {
+      await Alya(api, event, args);
+      return;
+  }
   if (config.peran == 2 && admin.includes(event.senderID) || config.peran == 1 && admin.includes(event.senderID) || config.peran == 0) {
       await Alya(api, event, args);
       return;
-  } else { 
-      api.setMessageReaction("👎", event.messageID);
-  }
- if (config.peran == 1 && adminIDs.includes(event.senderID) || config.peran == 0) {
+  } else if (config.peran == 1 && adminIDs.includes(event.senderID) || config.peran == 0) {
       await Alya(api, event, args);
       return;
   } else { 
       api.setMessageReaction("👎", event.messageID);
  }
-  if (config.peran == 0) {
-      await Alya(api, event, args);
-      return;
-  }
 	              } else {
-		     api.sendMessage('Pelan pelan sayank!', event.threadID, event.messageID);
+		     api.setMessageReaction('⌛', event.messageID);
 	              } 
                      }
                     }
