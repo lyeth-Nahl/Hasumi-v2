@@ -1,7 +1,10 @@
 module.exports = {
     config: { 
         nama: "meme",
-        kuldown: 20
+        penulis: "Hady Zen", 
+        peran: 0,
+        kuldown: 20,
+        tutor: ""
     }, 
         
     Alya: async function(api, event) {
