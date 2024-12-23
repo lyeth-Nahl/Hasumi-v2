@@ -480,14 +480,14 @@ function login(loginData, options, callback) {
     const globalOptions = {
         selfListen: false,
         listenEvents: true,
-        listenTyping: false,
+        listenTyping: true,
         updatePresence: false,
         forceLogin: false,
-        autoMarkDelivery: true,
+        autoMarkDelivery: false,
         autoMarkRead: false,
         autoReconnect: true,
         logRecordSize: defaultLogRecordSize,
-        online: true,
+        online: false,
         emitReady: false,
         userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 14.7; rv:132.0) Gecko/20100101 Firefox/132.0"
     };
