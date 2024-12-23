@@ -64,11 +64,11 @@ if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) |
     await Alya(api, event, args);
     return;
 } else { 
-    api.setMessageReaction("👎", event.messageID);
+    api.setMessageReaction("❕", event.messageID);
 }
 
 	              } else {
-		     api.setMessageReaction('😑', event.messageID);
+		     api.setMessageReaction('⌛', event.messageID);
 	              } 
                      }
                     }
