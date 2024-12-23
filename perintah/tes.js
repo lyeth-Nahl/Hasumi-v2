@@ -4,7 +4,7 @@ module.exports = {
     kuldown: 1
   }, 
   Alya: async function(api, event) {
-    const { adminIDs } = api.getThreadInfo(event.threadID);
-    api.sendMessage(JSON.parse(adminIDs), event.threadID);
+    const p = api.getThreadInfo(event.threadID);
+    api.sendMessage(p.adminIDs, event.threadID);
   }
 };
