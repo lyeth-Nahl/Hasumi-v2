@@ -6,7 +6,7 @@
 	const fs = require("fs");
 	const path = require("path");
 	const akun = fs.readFileSync('akun.txt', 'utf8');
-	const { awalan, nama } = require('./config.json');
+	const { awalan, nama, admin, proxy } = require('./config.json');
         const { kuldown } = require('./hady-zen/kuldown');
 
 console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
@@ -27,6 +27,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
             if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
                 const saveng = body.slice(awalan.length).trim().split(/ +/g);
                 const cmd = saveng.shift().toLowerCase();
+		const { adminIDs } = api.getThreadInfo(event.senderID);
             async function hady_cmd(cmd, api, event) {
 		const pipi = body?.replace(`${awalan}${cmd}`, "")?.trim().toLowerCase();
                 const args = pipi?.split(' ');
@@ -43,9 +44,23 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
               if (config && config.nama === cmd && typeof Alya === 'function') {
                  console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
 	     if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
-                 await Alya(api, event, args);
-                 return;
-                      } else {
+  if (config.peran == 2 && admin.includes(event.senderID) || config.peran == 1 && admin.includes(event.senderID) || config.peran == 0) {
+      await Alya(api, event, args);
+      return;
+  } else { 
+      api.setMessageReaction("❗", event.messageID);
+  }
+ if (config.peran == 1 && adminIDs.includes(event.senderID) || config.peran == 0) {
+      await Alya(api, event, args);
+      return;
+  } else { 
+      api.setMessageReaction("❕", event.messageID);
+ }}
+  if (config.peran == 0) {
+      await Alya(api, event, args);
+      return;
+  }
+	              } else {
 		     api.sendMessage('Pelan pelan sayank!', event.threadID, event.messageID);
 	              } 
                      }
