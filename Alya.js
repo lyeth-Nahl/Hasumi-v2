@@ -44,7 +44,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
               if (config && config.nama === cmd && typeof Alya === 'function') {
                  console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
 	     if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
-  if (config.peran == 0) {
+  if (config.peran == 0 || !config.peran) {
       await Alya(api, event, args);
       return;
   }
