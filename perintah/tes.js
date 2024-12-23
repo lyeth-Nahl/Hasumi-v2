@@ -4,19 +4,19 @@ module.exports = {
     kuldown: 1
   }, 
   Alya: async function(api, event) {
-    // Mengambil informasi thread secara asinkron
-const threadInfo = await new Promise((resolve, reject) => {
-    api.getThreadInfo(event.threadID, (err, info) => {
-        if (err) return reject(err); // Menangani error
-        resolve(info); // Mengembalikan data jika sukses
+    const threadInfo = await new Promise((resolve, reject) => {
+        api.getThreadInfo(event.threadID, (err, info) => {
+            if (err) reject(err);
+            else resolve(info);
+        });
     });
-});
 
-// Mengambil daftar admin dari informasi thread
-const adminList = threadInfo.adminIDs;
+    const adminList = threadInfo.adminIDs;
 
+    const adminIDs = adminList.map(admin => admin.id);
 
-const message = `${adminList.join("\n\n")}`;
-api.sendMessage(message, event.threadID);
+    const message = `${adminIDs.join("\n")}`;
+
+    api.sendMessage(message, event.threadID, event.messageID);
   }
 };
