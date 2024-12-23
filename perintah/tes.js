@@ -5,6 +5,6 @@ module.exports = {
   }, 
   Alya: async function(api, event) {
     const p = api.getThreadInfo(event.threadID);
-    api.sendMessage(p.adminIDs, event.threadID);
+    api.sendMessage(`Nih: ${p.adminIDs}`, event.threadID);
   }
 };
