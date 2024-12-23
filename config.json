@@ -1,6 +1,6 @@
 {
   "nama": "Alya Kujou", 
-  "proxy": "", 
   "awalan": ":", 
+  "proxy": { host: '103.179.217.242', port: 8080 }, 
   "admin": ["100088085177610"]
 }
