@@ -2,8 +2,8 @@ module.exports = {
 config: { 
   nama: "kick",
   penulis: "Hady Zen", 
-  kuldown: 6,
-  peran: 0,
+  kuldown: 10,
+  peran: 1,
   tutor: "<id>"
 }, 
 
