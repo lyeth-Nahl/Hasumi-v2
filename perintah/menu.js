@@ -18,6 +18,9 @@ async function Alya(api, message) {
 
 const config = { 
   nama: "menu",
-  kuldown: 10
+  penulis: "Hady Zen", 
+  peran: 0,
+  kuldown: 10,
+  tutor: "<cmd/kosong>"
 };
 module.exports = { Alya, config };
