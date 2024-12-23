@@ -55,7 +55,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
       return;
   } else { 
       api.setMessageReaction("❕", event.messageID);
- }}
+ }
   if (config.peran == 0) {
       await Alya(api, event, args);
       return;
