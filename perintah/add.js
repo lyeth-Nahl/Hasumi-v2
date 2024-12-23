@@ -1,15 +1,17 @@
 const config = { 
   nama: "add",
-  kuldown: 6
+  penulis: "Hady Zen", 
+  peran: 1,
+  kuldown: 10,
+  tutor: "<id>"
 };
 
 async function Alya(api, event) { 
-  const axios = require('axios');
-  const text = event.body?.replace(":add", "")?.trim().toLowerCase();
+ const id = args[0];
 
   if (text) {
      try { 
-      api.addUserToGroup(text, event.threadID);
+      api.addUserToGroup(id, event.threadID);
      } catch (e) {
        console.log(e);
      }
