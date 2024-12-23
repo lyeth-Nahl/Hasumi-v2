@@ -6,7 +6,7 @@
 	const fs = require("fs");
 	const path = require("path");
 	const akun = fs.readFileSync('akun.txt', 'utf8');
-	const { awalan, nama, admin, proxy } = require('./config.json');
+	const { awalan, nama, admin, proxy, port } = require('./config.json');
         const { kuldown } = require('./hady-zen/kuldown');
 
 console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
@@ -15,7 +15,8 @@ console.log(logo.info + "Chatbot messenger by hady and saveng.");
 console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
 	}
 
-login({appState: JSON.parse(fs.readFileSync('akun.txt', 'utf8'))}, (err, api) => {
+const zen = { host: proxy, port: port };
+login({appState: JSON.parse(fs.readFileSync('akun.txt', 'utf8'), zen)}, (err, api) => {
 		if(err) return console.log(logo.error + `terjadi kesalahan saat login: ${err}`);
 	api.setOptions({listenEvents: true});
 console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
@@ -81,7 +82,7 @@ if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) |
             hady_cmd(cmd, api, event);
 		
 });
-app.listen(3001, () => { });
+app.listen(port, () => { });
 });
 
 app.get('/', (req, res) => { 
