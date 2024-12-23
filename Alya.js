@@ -27,6 +27,10 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
             if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
                 const saveng = body.slice(awalan.length).trim().split(/ +/g);
                 const cmd = saveng.shift().toLowerCase();
+            async function hady_cmd(cmd, api, event) {
+		const pipi = body?.replace(`${awalan}${cmd}`, "")?.trim().toLowerCase();
+                const args = pipi?.split(' ');
+                const folder = path.join(__dirname, '/perintah');
 		const skibidi = await new Promise((resolve, reject) => { api.getThreadInfo(event.threadID, (err, info) => {
             if (err) reject(err);
             else resolve(info);
@@ -35,11 +39,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 
     const hooh = skibidi.adminIDs;
     const fitri = hooh.map(admin => admin.id);
-    const f = fitri.join(", ");
-            async function hady_cmd(cmd, api, event) {
-		const pipi = body?.replace(`${awalan}${cmd}`, "")?.trim().toLowerCase();
-                const args = pipi?.split(' ');
-                const folder = path.join(__dirname, '/perintah');
+    const ff = fitri.join(", ");
 
                 try {
                 const files = fs.readdirSync(folder);
