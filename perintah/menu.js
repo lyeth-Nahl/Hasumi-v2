@@ -54,7 +54,9 @@ async function Alya(api, message, args) {
     if (args[0] && commandInfo[args[0]]) {
       const info = commandInfo[args[0]];
       api.sendMessage(`# Informasi Perintah: \n\nNama: ${info.nama}\nPenulis: ${info.penulis}\nPeran: ${info.peran}\nCooldown: ${info.kuldown} detik\nTutorial: ${info.tutor}`, message.threadID, message.messageID);
-    } else {
+    } else if (args[0] && !commandInfo[args[0]]) { 
+      api.sendMessage(`Perintah ${args[0]} tidak ada.`, message.threadID, message.messageID);
+    } else if (!args[0]) {
       // Kirim daftar perintah jika tidak ada argumen atau perintah yang diminta tidak ditemukan
       api.sendMessage(`# Daftar perintah: \n\n${commandList.join('\n')}`, message.threadID, message.messageID);
     }
