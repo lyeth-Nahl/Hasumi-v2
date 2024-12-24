@@ -58,13 +58,11 @@ Alya: async function (api, message, args) {
 - Kuldown: ${info.kuldown} detik
 - Tutorial: :${args[0]}${info.tutor}`, message.threadID, message.messageID);
     } else if (args[0] && !commandInfo[args[0]]) { 
-      api.sendMessage(`Perintah ${args[0]} tidak ada.`, message.threadID, message.messageID);
+      api.sendMessage(`Perintah ${args[0]} tidak ada senpai.`, message.threadID, message.messageID);
     } else if (!args[0]) {
       api.sendMessage(`# 𝗗𝗮𝗳𝘁𝗮𝗿 𝗽𝗲𝗿𝗶𝗻𝘁𝗮𝗵
 
-${commandList.join('\n')}
-
-pakai :menu <perintah> untuk informasi lanjut.`, message.threadID, message.messageID);
+${commandList.join('\n')}`, message.threadID, message.messageID);
     }
  }
 }
