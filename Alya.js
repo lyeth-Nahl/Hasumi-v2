@@ -17,7 +17,7 @@ console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
 
 const zen = { host: proxy, port: port };
 login({appState: JSON.parse(fs.readFileSync('akun.txt', 'utf8'), zen)}, (err, api) => {
-		if(err) return console.log(logo.error + `terjadi kesalahan saat login: ${err}`);
+		if(err) return console.log(logo.error + `terjadi kesalahan saat login: ${err.message}`);
 	api.setOptions({listenEvents: true});
 console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 	  
@@ -42,22 +42,22 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
     const fitri = hooh.map(admin => admin.id);
     const ff = fitri.join(", ");
 
-                try {
-                const files = fs.readdirSync(folder);
+         try {
+       const files = fs.readdirSync(folder);
+       for (const file of files) {
+   if (file.endsWith('.js')) {
+       const anime = path.join(folder, file);
+       const { config, Alya } = require(anime);
 
-                    for (const file of files) {
-             if (file.endsWith('.js')) {
-                 const anime = path.join(folder, file);
-                 const { config, Alya } = require(anime);
-
-              if (config && config.nama === cmd && typeof Alya === 'function') {
-                 console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
-	     if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
-  if (config.peran == 0 || !config.peran) {
+   if (config && config.nama === cmd && typeof Alya === 'function') {
+      console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
+	   
+   if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
+	   
+if (config.peran == 0 || !config.peran) {
     await Alya(api, event, args);
     return;
 }
-
 if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) || config.peran == 0) {
     await Alya(api, event, args);
     return;
@@ -68,31 +68,30 @@ if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) |
     api.setMessageReaction("❕", event.messageID);
 }
 
-	              } else {
-		     api.setMessageReaction('⌛', event.messageID);
-	              } 
-                     }
-                    }
-		   }
-                } catch (error) {
-                    console.log(logo.error + 'Perintah error: ' + error.message);
-                }
-            }
-
-            hady_cmd(cmd, api, event);
-		
+  } else {
+   api.setMessageReaction('⌛', event.messageID);
+  } 
+  } else { 
+   api.setMessageReaction('❔', event.messageID);
+   }
+  }
+}
+ } catch (error) {
+   console.log(logo.error + 'Perintah error: ' + error.message);
+ }
+}
+ hady_cmd(cmd, api, event);
+ });
 });
+
 app.listen(port, () => { });
-});
-
 app.get('/', (req, res) => { 
  res.sendFile(path.join(__dirname, 'hady-zen', 'hadi.html'));
 });
 
 process.on('unhandledRejection', (reason) => {
-	console.log(logo.error + 'unhandled promise rejection:', reason);
+	console.log(logo.error + 'unhandled promise rejection:', reason.message);
 });
-
 process.on('uncaughtException', (err) => {
-	console.log(logo.error + 'uncaught exception:', err);
+	console.log(logo.error + 'uncaught exception:', err.message);
 });
