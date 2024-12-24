@@ -44,7 +44,7 @@ Alya: async function (api, message, args) {
           }
           break; 
         } else {
-          commandList.push("-" + commandName); 
+          commandList.push("│" + commandName); 
         }
       }
     }
@@ -55,7 +55,7 @@ Alya: async function (api, message, args) {
     } else if (args[0] && !commandInfo[args[0]]) { 
       api.sendMessage(`Perintah ${args[0]} tidak ada.`, message.threadID, message.messageID);
     } else if (!args[0]) {
-      api.sendMessage(`# Daftar perintah: \n\n${commandList.join('\n')}`, message.threadID, message.messageID);
+      api.sendMessage(`# Daftar perintah: \n\n${commandList.join('\n')}\n│\n╰──────`, message.threadID, message.messageID);
     }
 
   } catch (error) {
