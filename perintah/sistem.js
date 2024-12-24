@@ -21,24 +21,21 @@ Alya: async function (api, event) {
      const usedMemory = totalMemory - freeMemory;
 
      const chika = Date.now();
-     const arif = `${jam}𝗁 ${menit}𝗆`;
+     const arif = `${jam} jam ${menit} menit`;
     
      const diskUsage = await getDiskUsage();
      const edi = `${prettyBytes(diskUsage.used)}/${prettyBytes(diskUsage.total)}`;
      const riley = `${prettyBytes(os.totalmem() - os.freemem())}/${prettyBytes(totalMemory)}`;
-     const veli = os.freemem();
-     const saveng = `${prettyBytes(os.totalmem() - os.freemem())}/${prettyBytes(veli)}`;
      const luxion = `${os.type()} ${os.release()}`;
      const rizky = `${os.cpus()[0].model}`;
      const nino = Date.now();
      const raffa = nino - chika;
 
      const hadi = `[ ${ping(raffa)} | ${raffa} ] • UPTIME ✧\n`
-                + `\n- Uptime: ${arif}`
-                 + `\n- Disk: ${edi}`
+                 + `\n- Uptime: ${arif}`
                  + `\n- Ram: ${riley}`
-                 + `\n- Memori: ${saveng}` 
-                 + `\n- Cpu: ${rizky} (${os.cpus().length} 𝖼𝗈𝗋𝖾𝗌)`;
+                 + `\n- Disk: ${edi}`
+                 + `\n- Cpu: ${rizky} (${os.cpus().length} cores)`;
 
 api.sendMessage(hadi, event.threadID, event.messageID);
 
