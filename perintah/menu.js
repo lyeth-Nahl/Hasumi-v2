@@ -20,7 +20,7 @@ async function Alya(api, message) {
       let configMatch = fileContent.match(/const\s+config\s*=\s*{[^}]*nama\s*:\s*"([^"]+)"/);
       if (!configMatch) {
         // Jika tidak ditemukan dalam format const config, coba cari dalam module.exports.config
-        configMatch = fileContent.match(/module\.exports\.config\s*=\s*{[^}]*nama\s*:\s*"([^"]+)"/);
+        configMatch = fileContent.match(/config\s*:\s*{[^}]*nama\s*:\s*"([^"]+)"/);
       }
 
       if (configMatch) {
