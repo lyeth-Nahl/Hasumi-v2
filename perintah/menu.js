@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 
-async function Alya(api, message) {
+async function Alya(api, message, args) {
   const folderPath = path.join('./perintah');
 
   try {
@@ -11,6 +11,7 @@ async function Alya(api, message) {
 
     // Membaca isi dari setiap file dan mencari config.nama
     const commandList = [];
+    const commandInfo = {};  // Untuk menyimpan informasi perintah
 
     for (const file of jsFiles) {
       const filePath = path.join(folderPath, file);
@@ -22,14 +23,38 @@ async function Alya(api, message) {
         // Jika tidak ditemukan dalam format const config, coba cari dalam module.exports.config
         configMatch = fileContent.match(/config\s*:\s*{[^}]*nama\s*:\s*"([^"]+)"/);
       }
-
+      
       if (configMatch) {
-        commandList.push(configMatch[1]);  // Menambahkan nama perintah ke daftar
+        const commandName = configMatch[1];
+        if (args[0] && args[0] === commandName) {
+          // Menyimpan informasi perintah ketika argumen cocok dengan nama perintah
+          const configObj = fileContent.match(/const\s+config\s*=\s*{([^}]+)}/);
+          if (configObj) {
+            // Ekstrak informasi config
+            const configData = configObj[1].split(',').reduce((acc, line) => {
+              const [key, value] = line.split(':').map(str => str.trim().replace(/"/g, ''));
+              acc[key] = value;
+              return acc;
+            }, {});
+            // Menyimpan informasi perintah dalam object
+            commandInfo[commandName] = configData;
+          }
+          break;  // Hentikan perulangan setelah menemukan perintah yang diminta
+        } else {
+          commandList.push(commandName);  // Menambahkan nama perintah ke daftar
+        }
       }
     }
 
-    // Mengirimkan daftar perintah
-    api.sendMessage(`# Daftar perintah: \n\n${commandList.join('\n')}`, message.threadID, message.messageID);
+    // Jika ada informasi perintah yang ditemukan, kirimkan informasinya
+    if (args[0] && commandInfo[args[0]]) {
+      const info = commandInfo[args[0]];
+      api.sendMessage(`# Informasi Perintah: \n\nNama: ${info.nama}\nPenulis: ${info.penulis}\nPeran: ${info.peran}\nCooldown: ${info.kuldown} detik\nTutorial: ${info.tutor}`, message.threadID, message.messageID);
+    } else {
+      // Kirim daftar perintah jika tidak ada argumen atau perintah yang diminta tidak ditemukan
+      api.sendMessage(`# Daftar perintah: \n\n${commandList.join('\n')}`, message.threadID, message.messageID);
+    }
+
   } catch (error) {
     console.error(error);
   }
