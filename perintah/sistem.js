@@ -4,10 +4,10 @@ const exec = util.promisify(require('child_process').exec);
 
 module.exports = {
   config: {
-    nama: "uptime",
+    nama: "sistem",
     kuldown: 10,
     penulis: "Hady Zen",
-    peran: 0,
+    peran: 1,
     tutor: ""
   },
 
@@ -33,12 +33,12 @@ Alya: async function (api, event) {
      const nino = Date.now();
      const raffa = nino - chika;
 
-     const hadi = `[ ${ping(raffa)} | ${raffa} ] • 𝗨𝗣𝗧𝗜𝗠𝗘 ♡\n`
-                 + `\n- 𝖴𝗉𝗍𝗂𝗆𝖾: ${arif}`
-                 + `\n- 𝖣𝗂𝗌𝗄: ${edi}`
-                 + `\n- 𝖱𝖺𝗆: ${riley}`
-                 + `\n- 𝖬𝖾𝗆𝗈𝗋𝗒: ${saveng}` 
-                 + `\n- 𝖢𝖯𝖴: ${rizky} (${os.cpus().length} 𝖼𝗈𝗋𝖾𝗌)`;
+     const hadi = `[ ${ping(raffa)} | ${raffa} ] • UPTIME ✧`
+                + `\n- Uptime: ${arif}`
+                 + `\n- Disk: ${edi}`
+                 + `\n- Ram: ${riley}`
+                 + `\n- Memori: ${saveng}` 
+                 + `\n- Cpu: ${rizky} (${os.cpus().length} 𝖼𝗈𝗋𝖾𝗌)`;
 
 api.sendMessage(hadi, event.threadID, event.messageID);
 
@@ -60,15 +60,15 @@ function prettyBytes(bytes) {
 
 function ping(raffa) { 
   if (raffa < 110) {
-    return "🔵";
+    return "❄";
 } else if (raffa < 330) {
-     return "🟢";
+     return "🍀";
 } else if (raffa < 660) {
-     return "🟡";
+     return "🍁";
 } else if (raffa < 990) {
-     return "🟠";
+     return "🌡";
 } else {
-     return "🔴";
+     return "🔥";
  }
 }
 }
