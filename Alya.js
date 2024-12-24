@@ -71,6 +71,7 @@ if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) |
  } catch (error) {
    console.log(logo.error + 'Perintah error: ' + error.message);
  }
+}
  hady_cmd(cmd, api, event);
  });
 });
