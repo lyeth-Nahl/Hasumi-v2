@@ -5,7 +5,6 @@ module.exports = {
   }, 
   Alya: async function(api, event, args) {
     if (args[0]) {
-      const p = event.mentions;
           const { mentions } = event;
 		for (const id in mentions)
 			const p = `${mentions[id].replace("@", "")}: ${id}\n`;
