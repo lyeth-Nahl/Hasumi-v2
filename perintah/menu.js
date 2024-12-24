@@ -9,10 +9,29 @@ async function Alya(api, message) {
     const jsFiles = files.filter(file => path.extname(file) === '.js');
     jsFiles.sort();
 
-    const commandList = jsFiles.map(file => path.basename(file, '.js')).join('\n');
-    api.sendMessage(`# Daftar perintah: \n\n${commandList}`, message.threadID, message.messageID);
+    // Membaca isi dari setiap file dan mencari config.nama
+    const commandList = [];
+
+    for (const file of jsFiles) {
+      const filePath = path.join(folderPath, file);
+      const fileContent = await fs.readFile(filePath, 'utf-8');
+
+      // Mencari objek config.nama, baik dalam format const config maupun module.exports.config
+      let configMatch = fileContent.match(/const\s+config\s*=\s*{[^}]*nama\s*:\s*"([^"]+)"/);
+      if (!configMatch) {
+        // Jika tidak ditemukan dalam format const config, coba cari dalam module.exports.config
+        configMatch = fileContent.match(/module\.exports\.config\s*=\s*{[^}]*nama\s*:\s*"([^"]+)"/);
+      }
+
+      if (configMatch) {
+        commandList.push(configMatch[1]);  // Menambahkan nama perintah ke daftar
+      }
+    }
+
+    // Mengirimkan daftar perintah
+    api.sendMessage(`# Daftar perintah: \n\n${commandList.join('\n')}`, message.threadID, message.messageID);
   } catch (error) {
-    
+    console.error(error);
   }
 }
 
@@ -23,4 +42,5 @@ const config = {
   kuldown: 10,
   tutor: "<cmd/kosong>"
 };
+
 module.exports = { Alya, config };
