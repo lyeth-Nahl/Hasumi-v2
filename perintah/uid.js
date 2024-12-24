@@ -9,7 +9,7 @@ module.exports = {
   Alya: async function(api, event, args) {
     if (args[0]) {
           const { mentions } = event;
-	    let p = ''; 
+	    let hadi = ''; 
 		for (const id in mentions) { 
             hadi += `${mentions[id].replace("@", "")}: ${id}\n`;
 	}
