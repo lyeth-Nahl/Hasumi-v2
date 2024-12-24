@@ -8,9 +8,9 @@ module.exports = {
           const { mentions } = event;
 	    let p = ''; 
 		for (const id in mentions) { 
-            p += `${mentions[id].replace("@", "")}: ${id}\n`;
+            hadi += `${mentions[id].replace("@", "")}: ${id}\n`;
 	}
-      api.sendMessage("nih: " + p, event.threadID, event.messageID);
+      api.sendMessage(hadi, event.threadID, event.messageID);
     } else { 
       api.sendMessage(event.senderID, event.threadID, event.messageID);
     }
