@@ -43,7 +43,7 @@ Alya: async function (api, message, args) {
           }
           break; 
         } else {
-          commandList.push("- " + commandName); 
+          commandList.push(commandName); 
         }
       }
     }
@@ -51,11 +51,12 @@ Alya: async function (api, message, args) {
     if (args[0] && commandInfo[args[0]]) {
       const info = commandInfo[args[0]];
       api.sendMessage(`# 𝗜𝗻𝗳𝗼 𝗽𝗲𝗿𝗶𝗻𝘁𝗮𝗵
-Nama: ${info.nama}
-Penulis: ${info.penulis}
-Peran: ${info.peran}
-Kuldown: ${info.kuldown} detik
-Tutorial: :${args[0]}${info.tutor}`, message.threadID, message.messageID);
+      
+- Nama: ${info.nama}
+- Penulis: ${info.penulis}
+- Peran: ${info.peran}
+- Kuldown: ${info.kuldown} detik
+- Tutorial: :${args[0]}${info.tutor}`, message.threadID, message.messageID);
     } else if (args[0] && !commandInfo[args[0]]) { 
       api.sendMessage(`Perintah ${args[0]} tidak ada.`, message.threadID, message.messageID);
     } else if (!args[0]) {
