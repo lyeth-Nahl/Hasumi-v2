@@ -33,7 +33,7 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
             async function hady_cmd(cmd, api, event) {
        const pipi = body?.replace(`${awalan}${cmd}`, "")?.trim().toLowerCase();
        const args = pipi?.split(' ');
-	 try { 
+	 try {
        const skibidi = await new Promise((resolve, reject) => { api.getThreadInfo(event.threadID, (err, info) => { if (err) reject(err); else resolve(info); }); });
        const fitri = skibidi.adminIDs.map(admin => admin.id);
        const ff = fitri.join(", ");
@@ -64,13 +64,13 @@ if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) |
 
   } else {
    api.setMessageReaction('⌛', event.messageID);
+   }
   } 
  }
 }
  } catch (error) {
    console.log(logo.error + 'Perintah error: ' + error.message);
  }
-}
  hady_cmd(cmd, api, event);
  });
 });
