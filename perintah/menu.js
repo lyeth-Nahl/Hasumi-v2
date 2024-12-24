@@ -10,7 +10,6 @@ module.exports = {
   }, 
   
 Alya: async function (api, message, args) {
-  try {
     const files = await fs.readdir(path.join('./perintah'));
     const jsFiles = files.filter(file => path.extname(file) === '.js');
     jsFiles.sort();
@@ -44,22 +43,27 @@ Alya: async function (api, message, args) {
           }
           break; 
         } else {
-          commandList.push("│" + commandName); 
+          commandList.push("- " + commandName); 
         }
       }
     }
 
     if (args[0] && commandInfo[args[0]]) {
       const info = commandInfo[args[0]];
-      api.sendMessage(`# Informasi Perintah: \n\nNama: ${info.nama}\nPenulis: ${info.penulis}\nPeran: ${info.peran}\nCooldown: ${info.kuldown} detik\nTutorial: ${info.tutor}`, message.threadID, message.messageID);
+      api.sendMessage(`# 𝗜𝗻𝗳𝗼 𝗽𝗲𝗿𝗶𝗻𝘁𝗮𝗵
+Nama: ${info.nama}
+Penulis: ${info.penulis}
+Peran: ${info.peran}
+Kuldown: ${info.kuldown} detik
+Tutorial: :${args[0]}${info.tutor}`, message.threadID, message.messageID);
     } else if (args[0] && !commandInfo[args[0]]) { 
       api.sendMessage(`Perintah ${args[0]} tidak ada.`, message.threadID, message.messageID);
     } else if (!args[0]) {
-      api.sendMessage(`# Daftar perintah: \n\n${commandList.join('\n')}\n│\n╰──────`, message.threadID, message.messageID);
-    }
+      api.sendMessage(`# 𝗗𝗮𝗳𝘁𝗮𝗿 𝗽𝗲𝗿𝗶𝗻𝘁𝗮𝗵
 
-  } catch (error) {
-    console.error(error);
-  }
+${commandList.join('\n')}
+
+pakai :menu <perintah> untuk informasi lanjut.`, message.threadID, message.messageID);
+    }
  }
 }
