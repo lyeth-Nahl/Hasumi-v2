@@ -33,7 +33,7 @@ Alya: async function (api, event) {
      const nino = Date.now();
      const raffa = nino - chika;
 
-     const hadi = `[ ${ping(raffa)} | ${raffa} ] • UPTIME ✧`
+     const hadi = `[ ${ping(raffa)} | ${raffa} ] • UPTIME ✧\n`
                 + `\n- Uptime: ${arif}`
                  + `\n- Disk: ${edi}`
                  + `\n- Ram: ${riley}`
