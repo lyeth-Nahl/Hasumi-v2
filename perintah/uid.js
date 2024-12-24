@@ -6,7 +6,10 @@ module.exports = {
   Alya: async function(api, event, args) {
     if (args[0]) {
       const p = event.mentions;
-          api.sendMessage("nih: " + p, event.threadID, event.messageID);
+          const { mentions } = event;
+		for (const id in mentions)
+			const p = `${mentions[id].replace("@", "")}: ${id}\n`;
+      api.sendMessage("nih: " + p, event.threadID, event.messageID);
     } else { 
       api.sendMessage(event.senderID, event.threadID, event.messageID);
     }
