@@ -28,7 +28,11 @@ async function Alya(api, message, args) {
         const commandName = configMatch[1];
         if (args[0] && args[0] === commandName) {
           // Menyimpan informasi perintah ketika argumen cocok dengan nama perintah
-          const configObj = fileContent.match(/const\s+config\s*=\s*{([^}]+)}/);
+          let configObj = fileContent.match(/const\s+config\s*=\s*{[^}]*nama\s*:\s*"([^"]+)"/);
+      if (!configObj) {
+        // Jika tidak ditemukan dalam format const config, coba cari dalam module.exports.config
+        configObj = fileContent.match(/config\s*:\s*{[^}]*nama\s*:\s*"([^"]+)"/);
+      }
           if (configObj) {
             // Ekstrak informasi config
             const configData = configObj[1].split(',').reduce((acc, line) => {
