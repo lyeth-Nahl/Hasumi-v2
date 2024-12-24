@@ -31,7 +31,7 @@ async function Alya(api, message, args) {
           let configObj = fileContent.match(/const\s+config\s*=\s*{([^}]+)}/);
       if (!configObj) {
         // Jika tidak ditemukan dalam format const config, coba cari dalam module.exports.config
-        configObj = fileContent.match(/config\s*=\s*{([^}]+)}/);
+        configObj = fileContent.match(/config\s*:\s*{([^}]+)}/);
       }
           if (configObj) {
             // Ekstrak informasi config
