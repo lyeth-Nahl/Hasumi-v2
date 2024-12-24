@@ -28,16 +28,12 @@ Alya: async function (api, event) {
      const riley = `${prettyBytes(os.totalmem() - os.freemem())}/${prettyBytes(totalMemory)}`;
      const veli = os.freemem();
      const saveng = `${prettyBytes(os.totalmem() - os.freemem())}/${prettyBytes(veli)}`;
-     const putra = await usersData.getAll();
-     const loufi = await threadsData.getAll(); 
      const luxion = `${os.type()} ${os.release()}`;
      const rizky = `${os.cpus()[0].model}`;
      const nino = Date.now();
      const raffa = nino - chika;
 
      const hadi = `[ ${ping(raffa)} | ${raffa} ] • 𝗨𝗣𝗧𝗜𝗠𝗘 ♡\n`
-                 + `\n- 𝖳𝗈𝗍𝖺𝗅 𝗎𝗌𝖾𝗋: ${putra.length}`
-                 + `\n- 𝖳𝗈𝗍𝖺𝗅 𝗀𝗋𝗎𝗉: ${loufi.length}`
                  + `\n- 𝖴𝗉𝗍𝗂𝗆𝖾: ${arif}`
                  + `\n- 𝖣𝗂𝗌𝗄: ${edi}`
                  + `\n- 𝖱𝖺𝗆: ${riley}`
@@ -74,4 +70,6 @@ function ping(raffa) {
 } else {
      return "🔴";
  }
-       }
+}
+}
+};
