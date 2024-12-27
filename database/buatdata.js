@@ -30,4 +30,5 @@ function addUser(id, nama) {
     console.log(`User dengan ID ${id} sudah ada.`);
   }
 }
-module.exports = { addUser, database };
+const cekdata = loadData();
+module.exports = { addUser, cekdata };
