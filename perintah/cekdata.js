@@ -7,6 +7,6 @@ module.exports = {
     tutor: ""
   }, 
   Alya: async function(api, event, cekdata) {
-    api.sendMessage(`Nih: ${cekdata[event.senderID]}`, event.threadID, event.messageID)
+    api.sendMessage(`Nih: ${cekdata}`, event.threadID, event.messageID)
   }
 };
