@@ -1,24 +1,21 @@
-const config = { 
+module.exports ={ 
+config: { 
   nama: "tr",
-  kuldown: 10
-};
+  penulis: "Hady Zen", 
+  peran: 0,
+  kuldown: 10,
+  tutor: "<bahasa> <teks>"
+}, 
 
-async function Alya(api, event) { 
+Alya: async function (api, event, args) { 
   const axios = require('axios');
-  const text = event.body?.replace(":tr", "")?.trim().toLowerCase();
-  const parts = text?.split(' ');
-
-  if (parts && parts.length >= 2) {
-      const bhs = parts[0];
-      const hady = parts.slice(1).join(' ');
+     if (args.join(' ')) { 
+      const bhs = args[0];
+      const hady = args.slice(1).join(' ');
       const respon = await axios.get(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${bhs}&dt=t&q=${encodeURIComponent(hady)}`);
-      if (respon.data[0].map(item => item[0]).join('')) {
-        return api.sendMessage(`# Terjemahan\n\n${respon.data[0].map(item => item[0]).join('')}`, event.threadID, event.messageID);
-      } else {
-        return api.sendMessage("gak di jawab", event.threadID, event.messageID);
-      }
+     api.sendMessage(`# 𝗧𝗲𝗿𝗷𝗲𝗺𝗮𝗵𝗮𝗻\n\n${respon.data[0].map(item => item[0]).join('')}`, event.threadID, event.messageID);
   } else {
     return api.sendMessage("Masukkan pesan nya bodo", event.threadID, event.messageID);
   }
 }
-module.exports = { config, Alya };
+}
