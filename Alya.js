@@ -10,7 +10,7 @@
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { awalan, nama, admin, proxy, port } = require('./config.json');
  const { kuldown } = require('./hady-zen/kuldown');
- const { addUser, database } = require('./database/buatdata');
+ const { addUser, cekdata } = require('./database/buatdata');
 
 console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
 console.log(logo.info + "Chatbot messenger by hady and saveng.");
@@ -32,7 +32,7 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
         const saveng = body.slice(awalan.length).trim().split(/ +/g);
         const cmd = saveng.shift().toLowerCase();
 			
-            async function hady_cmd(cmd, api, event, databse) {
+            async function hady_cmd(cmd, api, event, cekdata) {
        const pipi = body?.replace(`${awalan}${cmd}`, "")?.trim().toLowerCase();
        const args = pipi?.split(' ');
 	 try {
@@ -74,7 +74,7 @@ if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) |
    console.log(logo.error + 'Perintah error: ' + error.message);
  }
 }
- hady_cmd(cmd, api, event, database);
+ hady_cmd(cmd, api, event, cekdata);
  });
 });
 
