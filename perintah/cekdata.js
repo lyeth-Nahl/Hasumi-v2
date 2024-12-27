@@ -6,7 +6,7 @@ module.exports = {
     peran: 0,
     tutor: ""
   }, 
-  Alya: async function(api, event, database) {
-    api.sendMessage(`Nih: ${database[event.senderID]}`, event.threadID, event.messageID)
+  Alya: async function(api, event, cekdata) {
+    api.sendMessage(`Nih: ${cekdata[event.senderID]}`, event.threadID, event.messageID)
   }
 };
