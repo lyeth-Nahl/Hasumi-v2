@@ -1,41 +1,46 @@
 ![alya](https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/hady-zen/alya.png) 
 
-<h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ♡</h1>
+<h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ✧</h1>
+> Personal Chatbot messenger by hady zen and saveng fox <br>
 
-> Personal Chatbot messenger by hady and saveng <br />
+## 𝗔𝗗𝗠𝗜𝗡 ✧
 
-## 𝗔𝗗𝗠𝗜𝗡 ♡
-
-• Nama: Hadi pranata <br />
-• Facebook: https://facebook.com/hadi.zen.in <br />
-• Instagram: https://instagram.com/hady.zen.in <br>
+• Nama: Hadi pranata <br>
+• Facebook: https://facebook.com/hadi.zen.in <br>
+• Instagram: https://instagram.com/hady.zen.in <br> 
+• Tiktok: https://www.tiktok.com/@hady.zen <br>
+• Website: https://hady-zen-web.koyeb.app/ <br>
+• Apk: https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/Tsukihime.apk <br> 
 • Whatsapp
 ```wa
 081262260170
 ```
 
-## INSTALL ♡
+## INSTALL ✧
 
-• download kiwi browser in play store <br />
-• open your host in kiwi browser <br />
-• create new project <br>
-• import or open terminal
-```import
+• unduh kiwi browser di play store <br>
+• buka url dibawah ini di kiwi browser <br>
+```web
+https://koyeb.app
+```
+• masuk ke akun koyeb mu atau buat <br>
+• fork project dibawah ini (wajib fork) <br>
+```fork
 https://github.com/HadyZen/Alya-Kujou.git
 ```
-```shell
-git clone https://github.com/HadyZen/Alya-Kujou && cp -r Alya-Kujou/. . && rm -rf Alya-Kujou
+• unduh cookie editor dibawah ini <br> 
+```cookie
+coming soon
 ```
-```instal
-npm install
-```
-• download: <br />
-• import cookie editor to kiwi extensions <br />
-• open https://www.facebook.com <br />
-• click cookie editor import to json <br />
-• open file akun.text paste your cookie <br />
-```start
-npm start
-```
+• masukkan file cookie editor ke kiwi extension <br>
+• buka url dibawah ini di kiwi browser <br>
+```fb
+https://www.facebook.com
+``` 
+• masuk ke akun facebook yang ingin dijadikan bot <br>
+• klik titik tiga di kiwi lalu geser kebawah <br>
+• pilih cookie editor lalu klik <br>
+• klik export atau tanda keluar, pilih json <br>
+• buka file akun.txt di git mu lalu ganti isinya <br>
 
-# Alya-Kujou
+# Hady Rikateki
