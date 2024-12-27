@@ -1,9 +1,12 @@
 module.exports = {
   config: { 
     nama: "tid", 
-    kuldown: 10
+    penulis: "Hady Zen", 
+    kuldown: 10,
+    peran: 0,
+    tutor: ""
   }, 
-  Alya: async function(api, message) {
-    api.sendMessage(message.threadID, message.threadID, message.messageID)
+  Alya: async function(api, event) {
+    api.sendMessage(event.threadID, event.threadID, event.messageID)
   }
 };
