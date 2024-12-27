@@ -10,6 +10,7 @@
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { awalan, nama, admin, proxy, port } = require('./config.json');
  const { kuldown } = require('./hady-zen/kuldown');
+ const { addUser } = require('./database/buatdata');
 
 console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
 console.log(logo.info + "Chatbot messenger by hady and saveng.");
@@ -24,6 +25,7 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 	  
    api.listenMqtt((err, event) => {
    const body = event.body;
+await addUser(event.senderID, 'Unknown');
 if (!body) return;
 if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
 if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
