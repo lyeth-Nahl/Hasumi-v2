@@ -10,9 +10,8 @@
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { awalan, nama, admin, proxy, port } = require('./config.json');
  const { kuldown } = require('./hady-zen/kuldown');
- const { addUser, cekdata } = require('./database/buatdata');
 
-console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
+console.log(warna.biru + `\n▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
 console.log(logo.info + "Chatbot messenger by hady and saveng.");
 
 if (!akun || akun.length < 0) return console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
@@ -26,13 +25,12 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
    api.listenMqtt((err, event) => {
    const body = event.body;
 if (!body) return;
-addUser(event.senderID, 'Unknown');
 if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
 if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
         const saveng = body.slice(awalan.length).trim().split(/ +/g);
         const cmd = saveng.shift().toLowerCase();
 			
-            async function hady_cmd(cmd, api, event, cekdata) {
+            async function hady_cmd(cmd, api, event) {
        const pipi = body?.replace(`${awalan}${cmd}`, "")?.trim().toLowerCase();
        const args = pipi?.split(' ');
 	 try {
@@ -74,7 +72,7 @@ if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) |
    console.log(logo.error + 'Perintah error: ' + error.message);
  }
 }
- hady_cmd(cmd, api, event, cekdata);
+ hady_cmd(cmd, api, event);
  });
 });
 
