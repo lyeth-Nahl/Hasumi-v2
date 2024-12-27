@@ -3,7 +3,7 @@ module.exports = {
         nama: "meme",
         penulis: "Hady Zen", 
         peran: 0,
-        kuldown: 20,
+        kuldown: 26,
         tutor: ""
     }, 
         
@@ -19,14 +19,11 @@ module.exports = {
                 responseType: 'arraybuffer'
             });
 
-            // Convert to buffer and save as a file
             const imageBuffer = Buffer.from(response.data, 'binary');
             const imagePath = path.join(__dirname, 'image.png'); // Save to current directory
 
-            // Write the buffer to a file
             fs.writeFileSync(imagePath, imageBuffer);
 
-            // Send the image
             api.sendMessage({ attachment: fs.createReadStream(imagePath) }, event.threadID, event.messageID);
 
         } catch (error) {
