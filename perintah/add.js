@@ -1,12 +1,13 @@
-const config = { 
+module.exports = {
+config: { 
   nama: "add",
   penulis: "Hady Zen", 
   peran: 1,
   kuldown: 10,
   tutor: "<id>"
-};
+}, 
 
-async function Alya(api, event) { 
+Alya: async function (api, event, args) { 
  const id = args[0];
 
   if (text) {
@@ -19,4 +20,4 @@ async function Alya(api, event) {
     return api.sendMessage("Masukkan id nya bodo", event.threadID, event.messageID);
   }
 }
-module.exports = { config, Alya };
+};
