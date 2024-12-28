@@ -6,5 +6,4 @@ function stop() {
   console.log(logo.info + "Alya telah diperintahkan untuk berhenti.");
   process.exit(1);
 };
-
 stop();
