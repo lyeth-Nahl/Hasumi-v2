@@ -15,7 +15,7 @@ module.exports = {
    return api.sendMessage('Berikan setidaknya dua rentang angka.', event.thteadID, event.messageID)
  }
 const rand = Math.floor(Math.random() * itsuki.length);
-const hasil = font.bold(itsuki[rand]);
+const pilihan = font.bold(itsuki[rand]);
 api.sendMessage(`Alya lebih milih ${pilihan}`, event.threadID, event.messageID);
  }
 };
