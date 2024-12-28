@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Alya AI</title>
+  <title>Alya Kujou - Chatbot by Hady Zen</title>
   <style>
     body {
       background-image: url("https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/anime/wallpaper.png");
@@ -12,125 +12,153 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-        }
-     #tabel {
-      background-color: #30475e;
-      padding: 20px;
-      margin: 10px auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-size: 60px;
+      color: #f4f4f4;
+    }
+
+    #tabel {
+      background-color: #242424;
+      padding: 100px;
+      margin: 20px auto;
+      border-radius: 40px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
       text-align: left;
       color: white;
     }
-        section.anime-list {
-            display: flex;
-            gap: 8px;
-            padding: 8px;
-            background-color: #242424; /* Dark section background */
-        }
 
-.btn {
-  padding: 10px 20px;
-            font-size: 16px;
-            background-color: #333; 
-            color: #fff;
-            border: none;
-            min-width: 93px;
-            min-height: 30px;
-}
-
-.active {
-  background-color: #666; 
-}
-        main {
-            text-align: center;
-            padding: 20px;
-        }
-
-        img {
-            max-width: 80%;
-            height: auto;
-            margin-top: 5px;
-        }
-         .keren {
-      font-size: 40px;
-      font-weight: bold;
-      color: white;
-      text-align: center;
-      animation: move 4s infinite;
-      text-shadow: 0 0 10px white, 0 0 30px white, 0 0 20px white;
+    section.anime-list {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      background-color: black;
     }
-    video {
-      display: block;
-      margin: 0 auto;
-      width: 100%;
-      height: auto;
-    }
-           .button {
-      background-color: #0899;
+
+    .hady {
+      padding: 30px 120px;
+      font-size: 60px;
+      background-color: #242424;
       color: white;
       border: none;
-      border-radius: 12px;
-      animation: fadeIn 4s;
-      margin: 10px;
-      min-width: 90px;
-      min-height: 36px;
-      font-size: 20px;
-      font-weight: bold; 
+      min-width: 93px;
+      min-height: 30px;
     }
-        .app-header {
-      background-color: #242418;
+
+    .active {
+      background-color: black;
+    }
+
+    main {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .roshidere {
+      font-size: 160px;
+      font-weight: bold;
+      color: #87CEEB;
+      text-align: center;
+      animation: kujou 4s infinite;
+      text-shadow: 0 0 100px #87CEEB, 0 0 100px #87CEEB, 0 0 100px #87CEEB;
+    }
+
+     .waifu {
+      background-color: #808080;
+      color: white;
+      border-radius: 10px;
+      margin: 8px;
+      min-width: 100px;
+      min-height: 30px;
+      font-size: 60px;
+    }
+     .rikateki {
+      background-color: transparent;
+      font-size: 70px;
+      color: white;
+      border: none;
+    }
+
+    .alya {
+      background-color: black;
       color: #fff;
       padding: 1px;
       text-align: center;
-      }
-        @keyframes move {
-      0%, 100% {
-        transform: translateY(0);
-      }
-50% {
-        transform: translateY(-10px);
-      }
+    }
+
+    .hadi {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+       .cipta {
+      background-color: transparent;
+      font-weight: bold;
+      font-size: 54px;
+      color: #808080;
+    }
+     @keyframes kujou {
+      0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-40px); }
     }
     </style>
   </head>
   <body>
-    <header class="app-header">
-      <h2 class="keren">Alya Kujou</h2>
+    <header class="alya">
+      <h2 class="roshidere">Alya Kujou</h2>
     </header>
+
     <section class="anime-list">
-      <button class="btn" onclick="showContent('home')">Home</button>
-      <button class="btn" onclick="showContent('info')">Info</button>
-      <button class="btn" onclick="showContent('kontak')">Kontak</button>
-      <button class="btn" onclick="showContent('random')">Random</button>
+      <button class="hady" onclick="showContent('home')">𝐇𝐎𝐌𝐄</button>
+      <button class="hady" onclick="showContent('info')">𝐈𝐍𝐅𝐎</button>
+      <button class="hady" onclick="showContent('kontak')">𝐊𝐎𝐍𝐓𝐀𝐊</button>
+      <button class="hady" onclick="showContent('story')">𝐒𝐓𝐎𝐑𝐘</button>
     </section>
+
     <main id="content">
-      <div id="home" class="content-section">
+      <div id="home" class="zen">
+        <img src="https://raw.githubusercontent.com/HadyZen/Alya-Kujou/refs/heads/main/hady-zen/alya.png" alt="Alya Kujou" style="max-width: 90%; height: auto;">
+        <h1>𝚂𝚎𝚕𝚊𝚖𝚊𝚝 𝚍𝚊𝚝𝚊𝚗𝚐!</h1>
+
+        <p style="font-size: 70px;" id="nebula"></p>
+        <audio controls autoplay loop style="width: 80%; height: 50px; margin: 10px auto;">
+          <source src="https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/separuh-aku.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div id="info" class="zen">
+        <div id="tabel">
+          <h2>𝗕𝗢𝗧 ♡</h2>
+          <p>
+            Webview: <button class="waifu" onclick="salinWeb()">Salin</button>
+            Cookie: <a href="https://github.com/Moustachauve/cookie-editor/releases/download/v1.12.1/cookie-editor-chrome-all-permissions1.12.1.zip" target="_blank"> <button class="waifu">Cookie</button></a><br>
+          </p>
+        </div>
 
       </div>
-      <div id="info" class="content-section">
-<div id="tabel">
-    <h2>𝗕𝗢𝗧 ♡</h2>
-  <p>Uptime: <span id="uptime"></span><br />
-Webview: <button class="tombol" onclick="copyLocation()">Salin</button></p>
-</div>
-<div id="tabel">
-    <h2>𝗧𝗘𝗦 ♡</h2>
-  <p>pepek</p>
-</div>
+      <div id="kontak" class="zen">
+        <div id="tabel">
+          <p style="font-size: 70px;" 𝙽𝚊𝚖𝚊: 𝙷𝚊𝚍𝚒 𝚙𝚛𝚊𝚗𝚊𝚝𝚊<br>
+            𝙶𝚒𝚝𝚑𝚞𝚋: <a href="https://github.com/HadyZen" target="_blank"> <button class="rikateki">𝙷𝚊𝚍𝚢 𝚉𝚎𝚗</button></a><br>
+            𝚆𝚑𝚊𝚝𝚜𝚊𝚙𝚙: <button class="rikateki" onclick="salin('081262260170')">𝟶𝟾𝟷𝟸𝟼𝟸𝟸𝟼𝟶𝟷𝟽𝟶</button> <br>
+            𝙵𝚊𝚌𝚎𝚋𝚘𝚘𝚔: <a href="https://www.facebook.com/hady.zen.in" target="_blank"> <button class="rikateki">𝙷𝚊𝚍𝚢 𝚁𝚒𝚔𝚊𝚝𝚎𝚔𝚒</button></a><br>
+          </p>
+        </div>
       </div>
-      <div id="kontak" class="content-section">
-      </div>
-      <div id="random" class="content-section">
-<video id="video" controls>
-  <source src="https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/anime/status.mp4" type="video/mp4">
-</video>
+      <div id="story" class="zen">
+        <div id="tabel">
+          <video controls loop style="display: block; margin: 0 auto; width: 90%; height: auto;">
+            <source src="https://raw.githubusercontent.com/HadyZen/hady-zen-api/refs/heads/main/anime/status.mp4">
+          </video>
+        </div>
       </div>
     </main>
+    <div class="hadi">
+      <h1 class="cipta">© 𝙷𝚊𝚍𝚢 𝚉𝚎𝚗'𝚒𝚗</h1>
+    </div>
     <script>
-      const buttons = document.querySelectorAll('.btn');
+      const buttons = document.querySelectorAll('.hady');
       function showContent(id) {
-        const contentSections = document.querySelectorAll('.content-section');
+        const contentSections = document.querySelectorAll('.zen');
         contentSections.forEach(section => {
           section.style.display = 'none';
         });
@@ -139,44 +167,55 @@ Webview: <button class="tombol" onclick="copyLocation()">Salin</button></p>
       showContent('home');
 
       let wle = Date.now();
-      function WaktuAktif() {
-        let elapsedTime = Date.now() - wle;
 
-        let jam = Math.floor(elapsedTime / 3600000);
-        let menit = Math.floor((elapsedTime % 3600000) / 60000);
-        let detik = Math.floor((elapsedTime % 60000) / 1000);
 
-        jam = jam < 10 ? "0" + jam: jam;
-        menit = menit < 10 ? "0" + menit: menit;
-        detik = detik < 10 ? "0" + detik: detik;
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          buttons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+        });
+      });
 
-        document.getElementById("uptime").textContent = jam + ":" + menit + ":" + detik;
+      function salinWeb() {
+        const tempInput = document.createElement('input');
+        tempInput.value = window.location.href;
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
       }
-      setInterval(WaktuAktif, 1000);
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Hapus kelas 'active' dari semua tombol
-    buttons.forEach(btn => btn.classList.remove('active'));
+      function salin(text) {
+        navigator.clipboard.writeText(text)
+        .then(() => {
+          document.querySelector('.rikateki').classList.add('copied');
+          setTimeout(() => {
+            document.querySelector('.rikateki').classList.remove('copied');
+          }, 1000);
+        })
+        .catch(err => {
+          console.error('gagal menyalin: ', err);
+        });
+      }
+      function nebula() {
+        const sekarang = new Date();
+        const jam = sekarang.getHours();
 
-    // Tambahkan kelas 'active' ke tombol yang baru diklik
-    button.classList.add('active');
-  });
-});
-function copyLocation() {
-  // Create a temporary input element
-  const tempInput = document.createElement('input');
-  tempInput.value = window.location.href;
-  document.body.appendChild(tempInput);
-
-  // Select the input text
-  tempInput.select();
-  document.execCommand('copy');
-
-  // Remove the temporary input element
-  document.body.removeChild(tempInput);
-}
-
+        let waktu;
+        if (jam >= 5 && jam < 10) {
+          waktu = "𝚙𝚊𝚐𝚒";
+        } else if (jam >= 10 && jam < 15) {
+          waktu = "𝚜𝚒𝚊𝚗𝚐";
+        } else if (jam >= 15 && jam < 18) {
+          waktu = "𝚜𝚘𝚛𝚎";
+        } else {
+          waktu = "𝚖𝚊𝚕𝚊𝚖";
+        }
+        const hady = `𝙷𝚊𝚕𝚕𝚘 𝚜𝚎𝚗𝚙𝚊𝚒, 𝚜𝚎𝚕𝚊𝚖𝚊𝚝 ${waktu}. 𝙿𝚎𝚛𝚔𝚎𝚗𝚊𝚕𝚔𝚊𝚗 𝚗𝚊𝚖𝚊𝚔𝚞 𝙰𝚕𝚢𝚊 𝙺𝚞𝚓𝚘𝚞 𝚊𝚝𝚊𝚞 𝙰𝚕𝚢𝚊 𝚁𝚘𝚜𝚑𝚒𝚍𝚎𝚛𝚎 𝚙𝚊𝚗𝚐𝚐𝚒𝚕 𝚊𝚓𝚊 𝙰𝚕𝚢𝚊. 𝙰𝚔𝚞 𝚊𝚍𝚊𝚕𝚊𝚑 𝚌𝚑𝚊𝚝𝚋𝚘𝚝 𝚖𝚎𝚜𝚜𝚎𝚗𝚐𝚎𝚛 𝚢𝚊𝚗𝚐 𝚍𝚒𝚌𝚒𝚙𝚝𝚊𝚔𝚊𝚗 𝚘𝚕𝚎𝚑 𝚑𝚊𝚍𝚢 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚊𝚗𝚝𝚞 𝚜𝚎𝚖𝚞𝚊 𝚘𝚛𝚊𝚗𝚐 𝚍𝚊𝚕𝚊𝚖 𝚙𝚎𝚛𝚝𝚊𝚗𝚢𝚊𝚊𝚗 𝚜𝚎𝚛𝚝𝚊 𝚖𝚎𝚗𝚐𝚑𝚒𝚋𝚞𝚛, 𝚓𝚒𝚔𝚊 𝚊𝚍𝚊 𝚙𝚎𝚛𝚝𝚊𝚗𝚢𝚊𝚊𝚗 𝚑𝚞𝚋𝚞𝚗𝚐𝚒 𝚊𝚔𝚞𝚗 𝚖𝚎𝚍𝚒𝚊 𝚜𝚘𝚍𝚒𝚊𝚕 𝚢𝚊𝚗𝚐 𝚊𝚍𝚊 𝚍𝚒 𝚔𝚊𝚝𝚎𝚐𝚘𝚛𝚒 𝚔𝚘𝚗𝚝𝚊𝚔 𝚍𝚊𝚗 𝚓𝚊𝚗𝚐𝚊𝚗 𝚕𝚞𝚙𝚊 𝚓𝚘𝚒𝚗 𝚔𝚎 𝚐𝚛𝚞𝚙 𝚗𝚢𝚊 𝚢𝚊.`;
+        document.getElementById('nebula').textContent = hady;
+      }
+      nebula();
     </script>
   </body>
 </html>
