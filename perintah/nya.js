@@ -6,7 +6,7 @@ module.exports = {
     peran: 0,
     tutor: ""
   }, 
-  Alya: async function(api, event) {
+  Alya: async function ({ api, event }) {
     api.sendMessage("nya.", event.threadID, event.messageID);
   }
 };
