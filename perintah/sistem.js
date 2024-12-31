@@ -11,7 +11,7 @@ module.exports = {
     tutor: ""
   },
 
-Alya: async function (api, event) {
+Alya: async function ({ api, event }) {
      const uptime = process.uptime();
      const jam = Math.floor(uptime / 3600);
      const menit = Math.floor((uptime % 3600) / 60);
