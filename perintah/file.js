@@ -6,7 +6,7 @@ module.exports = {
     kuldown: 6,
     tutor: "<nama file>"
   }, 
-  Alya: async function(api, event, args) {
+  Alya: async function ({ api, event, args }) {
     const fs = require('fs');  
     const path = require('path'); 
     if (!args.join(' ')) return api.sendMessage('Berikan nama file nya su.', event.threadID, event.messageID);
