@@ -2,11 +2,13 @@
   "name": "Alya-Kujou",
   "author": "Hady Zen",
   "description": "Chatbot messenger by hady",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "main": "Alya.js",
   "lockfileVersion": 3,
   "requires": true,
-  "packages": {},
+  "engines": {
+   "node": "16.x"
+  },
   "dependencies": {
     "axios": "^1.7.7",
     "cb": "^0.1.1",
@@ -23,6 +25,7 @@
   },
   "scripts": {
     "start": "node Alya.js", 
-    "stop": "node stop.js"
+    "dev": "node Alya.js", 
+    "restar": "node restar.js"
   }
 }
