@@ -9,7 +9,7 @@ module.exports = {
   tutor: "<cmd/kosong>"
   }, 
   
-Alya: async function (api, message, args) {
+Alya: async function ({ api, event, args }) {
     const files = await fs.readdir(path.join('./perintah'));
     const jsFiles = files.filter(file => path.extname(file) === '.js');
     jsFiles.sort();
@@ -56,13 +56,13 @@ Alya: async function (api, message, args) {
 - Penulis: ${info.penulis}
 - Peran: ${info.peran}
 - Kuldown: ${info.kuldown} detik
-- Tutorial: :${args[0]}${info.tutor}`, message.threadID, message.messageID);
+- Tutorial: :${args[0]}${info.tutor}`, event.threadID, event.messageID);
     } else if (args[0] && !commandInfo[args[0]]) { 
-      api.sendMessage(`Perintah ${args[0]} tidak ada senpai.`, message.threadID, message.messageID);
+      api.sendMessage(`Perintah ${args[0]} tidak ada senpai.`, event.threadID, event.messageID);
     } else if (!args[0]) {
       api.sendMessage(`# 𝗗𝗮𝗳𝘁𝗮𝗿 𝗽𝗲𝗿𝗶𝗻𝘁𝗮𝗵
 
-${commandList.join('\n')}`, message.threadID, message.messageID);
+${commandList.join('\n')}`, event.threadID, event.messageID);
     }
  }
 }
