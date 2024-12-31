@@ -49,14 +49,14 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
    if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
 	   
 if (config.peran == 0 || !config.peran) {
-    await Alya(api, event, args);
+    await Alya({ api, event, args });
     return;
 }
 if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) || config.peran == 0) {
-    await Alya(api, event, args);
+    await Alya({ api, event, args });
     return;
 } else if (config.peran == 1 && ff.includes(event.senderID) || config.peran == 0) {
-    await Alya(api, event, args);
+    await Alya({ api, event, args });
     return;
 } else { 
     api.setMessageReaction("❕", event.messageID);
