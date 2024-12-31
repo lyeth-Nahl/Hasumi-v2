@@ -7,7 +7,7 @@ config: {
   tutor: "<id>"
 }, 
 
-Alya: async function (api, event, args) { 
+Alya: async function ({ api, event, args }) { 
  const id = args[0];
 
   if (id) {
