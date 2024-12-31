@@ -7,7 +7,7 @@ config: {
   tutor: "<bahasa> <teks>"
 }, 
 
-Alya: async function (api, event, args) { 
+Alya: async function ({ api, event, args }) { 
   const axios = require('axios');
      if (args.join(' ')) { 
       const bhs = args[0];
