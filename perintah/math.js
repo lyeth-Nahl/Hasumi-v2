@@ -11,7 +11,7 @@ module.exports = {
 try { 
     const soal = args.join(' ');
     if (!soal) {
-     api.sendMessage('Masukkan soal mu sayank', event.threadID, event.messageID)
+     return api.sendMessage('Masukkan soal mu sayank', event.threadID, event.messageID)
 }
     const jumlah = await axios.get(`http://api.mathjs.org/v4/?expr=${encodeURIComponent(soal)}`);
     const hasil = jumlah.data;
