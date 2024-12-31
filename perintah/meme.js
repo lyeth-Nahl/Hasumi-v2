@@ -7,7 +7,7 @@ module.exports = {
         tutor: ""
     }, 
         
-    Alya: async function(api, event) {
+    Alya: async function ({ api, event }) {
         try {
             const axios = require('axios');
             const fs = require('fs');
