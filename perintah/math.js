@@ -7,7 +7,7 @@ module.exports = {
     peran: 0,
     tutor: "<soal>"
   }, 
-  Alya: async function(api, event, args) {
+  Alya: async function ({ api, event, args }) {
 try { 
     const soal = args.join(' ');
     if (!soal) {
