@@ -7,7 +7,7 @@ config: {
   tutor: "<pertanyaan>"
 }, 
 
-Alya: async function (api, event, args) { 
+Alya: async function ({ api, event, args }) { 
   const axios = require('axios');
   const text = args.join(' ');
 
