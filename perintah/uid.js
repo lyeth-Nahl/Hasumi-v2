@@ -6,7 +6,7 @@ module.exports = {
     peran: 0,
     tutor: "<kosong/tag>"
   }, 
-  Alya: async function(api, event, args) {
+  Alya: async function ({ api, event, args }) {
     if (args[0]) {
           const { mentions } = event;
 	    let hadi = ''; 
