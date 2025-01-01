@@ -9,11 +9,8 @@ config: {
 
 Alya: async function ({ api, event }) { 
   api.sendMessage("❄ Memulai ulang alya..", event.threadID, event.messageID);
-  const { spawn } = require("child_process");
-  const child = spawn("npm restar", {
-    cwd: __dirname,
-    stdio: "inherit",
-    shell: true
-  });
-}
+  process.on('exit', function() {
+  require('child_process').exec('npm restar');
+});
+ }
 };
