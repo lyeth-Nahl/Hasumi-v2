@@ -43,7 +43,8 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
        const files = fs.readdirSync(path.join(__dirname, '/perintah'));
        for (const file of files) {
    if (file.endsWith('.js')) {
-       const { config, Alya, bahasa } = require(path.join('perintah', file));
+       const anime = path.join(path.join(__dirname, '/perintah'), file);
+       const { config, Alya, bahasa } = require(anime);
 
    if (config && config.nama === cmd && typeof Alya === 'function') {
       console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
