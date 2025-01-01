@@ -8,7 +8,7 @@
  const fs = require("fs");
  const path = require("path");
  const akun = fs.readFileSync('akun.txt', 'utf8');
- const { awalan, nama, admin, proxy, port } = require('./config.json');
+ const { awalan, nama, admin, proxy, port, bahasa: mami } = require('./config.json');
  const { kuldown } = require('./hady-zen/kuldown');
 
 console.log(warna.biru + `\n▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
@@ -30,7 +30,7 @@ if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} a
 if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
         const saveng = body.slice(awalan.length).trim().split(/ +/g);
         const cmd = saveng.shift().toLowerCase();
-			
+	   
             async function hady_cmd(cmd, api, event) {
        const pipi = body?.replace(`${awalan}${cmd}`, "")?.trim().toLowerCase();
        const args = pipi?.split(' ');
@@ -41,11 +41,16 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
        const files = fs.readdirSync(path.join(__dirname, '/perintah'));
        for (const file of files) {
    if (file.endsWith('.js')) {
-       const anime = path.join(path.join(__dirname, '/perintah'), file);
-       const { config, Alya } = require(anime);
+       const anime = path.join('perintah', file);
+       const { config, Alya, bahasa } = require(anime);
 
    if (config && config.nama === cmd && typeof Alya === 'function') {
       console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
+       const bhs = function(bahasa, mami) { 
+	 const mikasa = JSON.parse(bahasa);
+	 const y = 
+       };	
+
 	   
    if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
 	   
