@@ -20,7 +20,7 @@ if (!fs.existsSync(alya)) {
  return itsuki;
 }
 
-const log-bhs = bhs();
-const code-bhs = cek();
+const log_bhs = bhs();
+const code_bhs = cek();
 
-module.exports = { log-bhs, code-bhs };
+module.exports = { log_bhs, code_bhs };
