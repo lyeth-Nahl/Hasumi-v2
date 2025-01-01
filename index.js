@@ -14,6 +14,9 @@ function hady() {
       hady();
     }
   });
-}
+};
+setInterval(function() {
+  console.clear();
+}, 3600000); 
 
 hady();
