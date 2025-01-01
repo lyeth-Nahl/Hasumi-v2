@@ -3,6 +3,7 @@
 <h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ✧</h1>
 
 > Personal Chatbot messenger by hady zen and saveng fox <br>
+> Yang mau di joki uptime hubungi kontak dibawah <br>
 
 ## 𝗔𝗗𝗠𝗜𝗡 ✧
 
@@ -22,16 +23,16 @@
 • unduh kiwi browser di play store <br>
 • buka url dibawah ini di kiwi browser <br>
 ```web
-https://koyeb.app
+https://glitch.com
 ```
-• masuk ke akun koyeb mu atau buat <br>
-• fork project dibawah ini (wajib fork) <br>
+• masuk ke akun glitch mu atau buat <br>
+• buat project baru dan masukkan url ini <br>
 ```fork
 https://github.com/HadyZen/Alya-Kujou.git
 ```
 • unduh cookie editor dibawah ini <br> 
 ```cookie
-coming soon
+nanti
 ```
 • masukkan file cookie editor ke kiwi extension <br>
 • buka url dibawah ini di kiwi browser <br>
@@ -41,7 +42,7 @@ https://www.facebook.com
 • masuk ke akun facebook yang ingin dijadikan bot <br>
 • klik titik tiga di kiwi lalu geser kebawah <br>
 • pilih cookie editor lalu klik <br>
-• klik export atau tanda keluar, pilih json <br>
-• buka file akun.txt di git mu lalu ganti isinya <br>
+• klik export atau tanda keluar, pilih format json <br>
+• buka file akun.txt di project mu lalu ganti isinya <br>
 
 # Hady Rikateki
