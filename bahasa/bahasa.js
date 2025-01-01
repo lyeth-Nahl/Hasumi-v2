@@ -1,4 +1,4 @@
-*/ HADY ZEN'IN */
+/* HADY ZEN'IN */
 
 const fs = require('fs');
 const path = require('path');
