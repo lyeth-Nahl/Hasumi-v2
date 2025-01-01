@@ -24,8 +24,8 @@
     "websocket-stream": "^5.5.2"
   },
   "scripts": {
-    "start": "node Alya.js", 
-    "dev": "node Alya.js", 
+    "start": "node index.js", 
+    "dev": "node index.js", 
     "restar": "node restar.js"
   }
 }
