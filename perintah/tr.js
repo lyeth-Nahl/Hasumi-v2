@@ -8,7 +8,7 @@ config: {
   tutor: "<bahasa> <teks>"
 }, 
 bahasa: { 
-  id: { gada: "Kamu belum memasukkan code bahasa atau teksnya." }
+  id: { "gada": "Kamu belum memasukkan code bahasa atau teksnya." }
 }, 
 Alya: async function ({ api, event, args, bhs }) { 
      if (args.join(' ')) { 
