@@ -10,7 +10,7 @@ function cek() {
  return bahasa;
 }
 function bhs() {
- let alya = path.join('bahasa', `${cek()}.bhs`);
+ let alya = path.join('bahasa', `${global.bhs}.bhs`);
   
 if (!fs.existsSync(alya)) {
   alya = path.join('bahasa', 'id.bhs');
