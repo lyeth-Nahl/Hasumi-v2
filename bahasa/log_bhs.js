@@ -3,18 +3,21 @@
 const fs = require('fs');
 const path = require('path');
 
+global.bhs = cek();
+function cek() {
+ const hadi = fs.readFileSync('config.json', 'utf-8');
+ const { bahasa } = JSON.parse(hadi);
+ return bahasa;
+}
 function bhs() {
- const hadi = fs.readFileSync(path.join('config.json'), 'utf-8');  
- const { bahasa } = JSON.parse(hadi);  
- const alya = path.join('bahasa', `${bahasa}.bhs`);
+ let alya = path.join('bahasa', `${cek()}.bhs`);
   
-if (fs.existsSync(alya)) {
+if (!fs.existsSync(alya)) {
+  alya = path.join('bahasa', 'id.bhs');
+} 
  const kazuya = fs.readFileSync(alya, 'utf-8');
  const itsuki = JSON.parse(kazuya);
  return itsuki;
-} else {
- return '✘';
- }
 }
 
 const log_bhs = bhs();
