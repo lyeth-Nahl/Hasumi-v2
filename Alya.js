@@ -49,7 +49,7 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
    if (config && config.nama === cmd && typeof Alya === 'function') {
       console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
        const bhs = function(veng) { 
-	 return bahasa[code_bhs];
+	 return bahasa[code_bhs][veng];
        };	
    
    if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
