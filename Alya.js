@@ -8,7 +8,7 @@
  const fs = require("fs");
  const path = require("path");
  const akun = fs.readFileSync('akun.txt', 'utf8');
- const { log-bhs, code-bhs } = require('bahasa/bahasa');
+ const { log_bhs, code_bhs } = require('bahasa/bahasa');
  const { awalan, nama, admin, proxy, port } = require('./config.json');
  const { kuldown } = require('./hady-zen/kuldown');
 
@@ -48,7 +48,7 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
    if (config && config.nama === cmd && typeof Alya === 'function') {
       console.log(logo.cmds + `Berhasil menjalankan perintah ${config.nama}.`);
        const bhs = function(veng) { 
-	 return bahasa[code-bhs];
+	 return bahasa[code_bhs];
        };	
    
    if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
