@@ -8,7 +8,7 @@
  const fs = require("fs");
  const path = require("path");
  const akun = fs.readFileSync('akun.txt', 'utf8');
- const { log_bhs, code_bhs } = require('bahasa/bahasa');
+ const { log_bhs, code_bhs } = require('./bahasa/bahasa');
  const { awalan, nama, admin, proxy, port } = require('./config.json');
  const { kuldown } = require('./hady-zen/kuldown');
 
