@@ -12,11 +12,7 @@
  const { awalan, nama, admin, proxy, port } = require('./config.json');
  const { kuldown } = require('./hady-zen/kuldown');
 
-console.log(warna.biru + `\n▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█\n`);
-console.log(logo.info + "Chatbot messenger by hady and saveng.");
-
 if (!akun || akun.length < 0) return console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
-
 const zen = { host: proxy, port: port };
 login({appState: JSON.parse(akun, zen)}, (err, api) => {
    if(err) return console.log(logo.error + `Terjadi kesalahan saat login: ${err.message}`);
