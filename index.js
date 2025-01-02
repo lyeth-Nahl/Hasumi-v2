@@ -2,6 +2,10 @@
 
 const { spawn } = require("child_process");
 
+setInterval(function() {
+  console.clear();
+}, 3600000); 
+
 function hady() {
   const child = spawn("node Alya.js", {
     cwd: __dirname,
@@ -13,9 +17,5 @@ function hady() {
     if (code == 2) { hady(); }
   });
 };
-
-setInterval(function() {
-  console.clear();
-}, 3600000); 
 
 hady();
