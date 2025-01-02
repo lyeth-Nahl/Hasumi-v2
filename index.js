@@ -1,10 +1,11 @@
 /* HADY ZEN'IN */
 
-const { spawn } = require("child_process");
+const { spawn } = require('child_process');
+const { logo, warna } = require('./hady-zen/log');
 
 setInterval(function() {
   console.clear();
-}, 3600000); 
+}, 10000); 
 
 function hady() {
   const child = spawn("node Alya.js", {
@@ -13,9 +14,14 @@ function hady() {
     shell: true
   });
 
-  child.on("close", (code) => {
-    if (code == 2) { hady(); }
-  });
-};
+  setTimeout(() => {
+    console.log(warna.biru + `▄▀█ █░ █▄█ ▄▀█  █▄▀ █░█ ░█ █▀█ █░█\n█▀█ █▄ ░█░ █▀█  █░█ █▄█ ▄█ █▄█ █▄█`);
+    console.log(logo.info + "Chatbot messenger by hady and saveng.");
+  }, 1000);
 
-hady();
+  child.on("close", (code) => {
+    if (code == 2) {
+      hady(); 
+    }
+  });
+}
