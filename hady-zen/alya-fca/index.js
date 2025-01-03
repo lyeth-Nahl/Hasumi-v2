@@ -241,21 +241,6 @@ function buildAPI(globalOptions, html, jar) {
                 location: "Khu vực Tây Bắc Thái Bình Dương"
             },
             {
-                code: "VLL",
-                name: "Valley Region",
-                location: "Valley"
-            },
-            {
-                code: "ASH",
-                name: "Ashburn Region",
-                location: "Ashburn"
-            },
-            {
-                code: "DFW",
-                name: "Dallas/Fort Worth Region",
-                location: "Dallas/Fort Worth"
-            },
-            {
                 code: "LLA",
                 name: "Los Angeles Region",
                 location: "Los Angeles"
@@ -279,16 +264,6 @@ function buildAPI(globalOptions, html, jar) {
                 code: "HKG",
                 name: "Hong Kong",
                 location: "Hong Kong"
-            },
-            {
-                code: "SYD",
-                name: "Sydney",
-                location: "Sydney"
-            },
-            {
-                code: "PNB",
-                name: "Pacific Northwest - Beta",
-                location: "Pacific Northwest "
             }
         ];
 
