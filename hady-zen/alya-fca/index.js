@@ -268,7 +268,7 @@ function buildAPI(globalOptions, html, jar) {
         ];
 
         if (!region) {
-            region = ['prn',"pnb","vll","hkg","sin"][Math.random()*5|0];
+            region = ['prn',"sin","nrt","hkg","lla","fra"][Math.random()*6|0];
 
         }
         if (!mqttEndpoint) {
