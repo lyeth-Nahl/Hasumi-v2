@@ -3,10 +3,6 @@
 const { spawn } = require('child_process');
 const { logo, warna } = require('./hady-zen/log');
 
-setInterval(function() {
-  console.clear();
-}, 10000); 
-
 function hady() {
   const child = spawn("node Alya.js", {
     cwd: __dirname,
@@ -25,3 +21,7 @@ function hady() {
     }
   });
 }
+hady();
+setInterval(function() {
+  console.clear();
+}, 3600000); 
