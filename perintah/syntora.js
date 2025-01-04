@@ -17,6 +17,9 @@ module.exports = {
     let memoData = JSON.parse(fs.readFileSync(memo, 'utf8'));
     const text = args.join(' ');
 
+    if (!fs.existsSync("./perintah/Memory-Syn")) return fs.mkdirSync("./perintah/Memory-Syn", { recursive: true });
+    if (!fs.existsSync(memo)) return fs.writeFileSync(memo, JSON.stringify([]));
+
     if (isAdmin && text.startsWith("delete")) {
       if (text.toLowerCase() === "delete all") {
         memoData = {};
