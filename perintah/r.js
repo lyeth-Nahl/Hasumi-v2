@@ -7,7 +7,7 @@ module.exports = {
     tutor: "Bot akan restart otomatis setelah hitungan mundur 2 jam."
   },
 
-  Alya: async function (api, event) {
+  Alya: async function ({api, event}) {
     const waktuMundur = 2 * 60 * 60 * 1000;
     let sisaWaktu = waktuMundur;
 
