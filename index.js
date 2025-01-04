@@ -2,7 +2,7 @@
 
 const { spawn } = require('child_process');
 const { logo, warna } = require('./hady-zen/log');
-global.Syntora.config = require("./config.json");
+global.config = require("./config.json");
 
 function hady() {
   const child = spawn("node Alya.js", {
