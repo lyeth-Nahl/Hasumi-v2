@@ -10,7 +10,7 @@
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { log_bhs, code_bhs } = require('./bahasa/bahasa');
  const { awalan, nama, admin, proxy, port } = require('./config.json');
- global.config = require('./config.json');
+ global.Syntora.config = require("./config.json");
  const { kuldown } = require('./hady-zen/kuldown');
 
 if (!akun || akun.length < 0) return console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
