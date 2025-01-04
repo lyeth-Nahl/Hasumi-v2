@@ -15,7 +15,7 @@ module.exports = {
     kuldown: 6,
     tutor: "<nama file>"
   }, 
-  Alya: async function(api, event, args) {
+  Alya: async function({api, event, args}) {
     const folderPath = "perintah";
     const pilih = ["install", "delete", "load", "loadall"];
     const awal = args[0];
