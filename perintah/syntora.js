@@ -13,13 +13,26 @@ config: {
 
 Alya: async function (api, event, args) { 
   // edit by Range
-  const text = args.join(' ');
-  const userID = event.senderID;
+  const userID = api.sendMessage(event.senderID);
   const memo = "./perintah/Memory-Syn/SynMemo.json";
-  const isAdmin = global.config.admin.includes(userID);
-
-  if (!fs.existsSync("./perintah/Memory-Syn")) return fs.mkdirSync("./perintah/Memory-Syn", { recursive: true });
-  if (!fs.existsSync(memo)) return fs.writeFileSync(memo, JSON.stringify([]));
+  const admID = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+  const adminAll = admID.admin;
+  const isAdmin = adminAll.includes(userID);
+  const text = args.join(' ');
+    if (text) {
+    let previousText = memoData[userID]?.text || "No Input";
+      memoData[userID] = { text: text };
+      fs.writeFileSync(memo, JSON.stringify(memoData, null, 2));
+      const hady = `Nama kamu adalah Syntora Dynamix, Kamu adalah artificial intelligence bot yang ramah dan baik hati, Kamu di ciptakan oleh tim pengembang dari kolaborasi nebula dan shenix. User input: ${text}, User Previous Input: ${previousText}`;
+      const { data } = await axios.get(`https://api-rangestudio.vercel.app/api/gemini?text=${encodeURIComponent(hady)}`);
+      if (data.answer) {
+        return api.sendMessage(data.answer, event.threadID, event.messageID);
+      } else {
+        return api.sendMessage("Tidak dapat merespon!", event.threadID, event.messageID);
+      }
+  } else {
+    return api.sendMessage("Masukkan pesan nya dulu...", event.threadID, event.messageID);
+    }
 
   let memoData = JSON.parse(fs.readFileSync(memo, 'utf8'));
   if (isAdmin) {
@@ -40,19 +53,5 @@ Alya: async function (api, event, args) {
         }
       }
     }
-  if (text) {
-    let previousText = memoData[userID]?.text || "No Input";
-      memoData[userID] = { text: text };
-      fs.writeFileSync(memo, JSON.stringify(memoData, null, 2));
-      const hady = `Nama kamu adalah Syntora Dynamix, Kamu adalah artificial intelligence bot yang ramah dan baik hati, Kamu di ciptakan oleh tim pengembang dari kolaborasi nebula dan shenix. User input: ${text}, User Previous Input: ${previousText}`;
-      const { data } = await axios.get(`https://api-rangestudio.vercel.app/api/gemini?text=${encodeURIComponent(hady)}`);
-      if (data.answer) {
-        return api.sendMessage(data.answer, event.threadID, event.messageID);
-      } else {
-        return api.sendMessage("Tidak dapat merespon!", event.threadID, event.messageID);
-      }
-  } else {
-    return api.sendMessage("Masukkan pesan nya dulu...", event.threadID, event.messageID);
-  }
  }
 };
