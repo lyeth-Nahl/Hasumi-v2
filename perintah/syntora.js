@@ -13,7 +13,7 @@ module.exports = {
   Alya: async function ({ api, event, args }) { 
     const userID = event.senderID;
     const memo = "./perintah/Memory-Syn/SynMemo.json";
-    const isAdmin = global.config.admin.includes(userID);
+    const isAdmin = global.Syntora.config.admin.includes(userID);
     let memoData = JSON.parse(fs.readFileSync(memo, 'utf8'));
     const text = args.join(' ');
 
