@@ -9,14 +9,27 @@
  const path = require("path");
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { log_bhs, code_bhs } = require('./bahasa/bahasa');
- const { awalan, nama, admin, proxy, port } = require('./config.json');
+ const { awalan, nama, admin, proxy, port, notifKey } = require('./config.json');
  global.Syntora.config = require("./config.json");
  const { kuldown } = require('./hady-zen/kuldown');
+
+async function notifErr(notif) { 
+  try { 
+ const oreki = `# 𝗡𝗼𝘁𝗶𝗳𝗶𝗸𝗮𝘀𝗶\n\nNama: ${nama}\nPesan: ${notif}`;
+ const { data } = await axios.get(`https://api.callmebot.com/facebook/send.php?apikey=${notifKey}&text=${encodeURIComponent(oreki)}`);
+   console.log(logo.cmds + 'Notifikasi berhasil: ' + data);
+  } catch (futaro) {
+   console.log(logo.error + 'Kamu belum menyetel notifkey atau notifkey tidak valid.');
+  }
+}
 
 if (!akun || akun.length < 0) return console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
 const zen = { host: proxy, port: port };
 login({appState: JSON.parse(akun, zen)}, (err, api) => {
-   if(err) return console.log(logo.error + `Terjadi kesalahan saat login: ${err.message}`);
+   if(err) { 
+	   console.log(logo.error + `Terjadi kesalahan saat login: ${err.message}`);
+	   notifErr(`Terjadi kesalahan saat login: ${err.message}`);
+   }
 	
    api.setOptions({listenEvents: true});
 console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
