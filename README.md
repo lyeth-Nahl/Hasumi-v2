@@ -1,4 +1,4 @@
-![syntora](https://raw.githubusercontent.com/MaskStarmoon/Syntora-Dynamix/refs/heads/main/hady-zen/logo-syn.png) 
+![syntora](https://raw.githubusercontent.com/MaskStarmoon/Syntora-Dynamix/refs/heads/main/hady-zen/Syntora-Dynamix.png) 
 
 <h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ♡</h1>
 
