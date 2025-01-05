@@ -17,21 +17,25 @@ module.exports = {
   }, 
   Alya: async function({api, event, args}) {
     const folderPath = "perintah";
-    const pilih = ["install", "delete", "load", "loadall"];
+    const pilih = ["install", "delete", "load", "loadAll"];
     const awal = args[0];
     const namaFile = args[1];
     const link = args[2];
     
-    // Install Logika
     if (awal === pilih[0]) {
       try {
-        if (link) {
+        if (!namaFile || !namaFile.endsWith('.js')) {
+          return api.sendMessage("Gunakan format: cmd install <namaFile>.js <link> atau cmd install <namaFile>.js <kode>", event.threadID);
+        }
+
+        const filePath = path.join(folderPath, namaFile);
+
+        if (link && link.startsWith("http")) {
           const domain = getDomain(link);
-          
           if (!domain) {
             return api.sendMessage("URL tidak valid.", event.threadID);
           }
-          
+
           if (domain === "pastebin.com") {
             const regex = /https:\/\/pastebin\.com\/(?!raw\/)(.*)/;
             if (link.match(regex)) {
@@ -42,37 +46,32 @@ module.exports = {
             }
           }
 
-          // Coba lakukan permintaan GET untuk mengunduh file
           const response = await axios.get(link, { 
             headers: {
-              'Accept': 'application/json',  // Menambahkan header agar permintaan lebih umum
+              'Accept': 'application/json',
             }
           });
-          
-          // Periksa apakah status response adalah 200, yang berarti berhasil
+
           if (response.status === 200) {
-            const filePath = path.join(folderPath, `${namaFile}.js`);
             fs.writeFileSync(filePath, response.data);
-            api.sendMessage(`File ${namaFile}.js berhasil diunduh dan disimpan.`, event.threadID);
+            api.sendMessage(`File ${namaFile} berhasil diunduh dan disimpan.`, event.threadID);
           } else {
             api.sendMessage(`Gagal mengunduh file. Status: ${response.status}`, event.threadID);
           }
         }
-        // Jika tidak ada link, anggap pengguna memberikan kode langsung
-        else if (namaFile && namaFile.endsWith('.js')) {
-          const filePath = path.join(folderPath, namaFile);
-          // Menyimpan kode yang dikirim sebagai file
-          fs.writeFileSync(filePath, args.slice(2).join(" "));
-          api.sendMessage(`File ${namaFile}.js berhasil dibuat dengan kode yang diberikan.`, event.threadID);
-        } else {
-          api.sendMessage("Gunakan format: cmd install <namaFile> <link> atau cmd install <namaFile> <kode>", event.threadID);
+        else if (args.slice(2).length > 0) {
+          const kodeLangsung = args.slice(2).join(" ");
+          fs.writeFileSync(filePath, kodeLangsung);
+          api.sendMessage(`File ${namaFile} berhasil dibuat dengan kode langsung.`, event.threadID);
+        } 
+        else {
+          api.sendMessage("Gunakan format: cmd install <namaFile>.js <link> atau cmd install <namaFile>.js <kode langsung>", event.threadID);
         }
       } catch (error) {
         api.sendMessage(`Gagal mengunduh atau menyimpan file: ${error.message}`, event.threadID);
       }
     }
 
-    // Delete Logika
     else if (awal === pilih[1]) {
       try {
         if (namaFile && namaFile.endsWith('.js')) {
@@ -91,7 +90,6 @@ module.exports = {
       }
     }
 
-    // Load Logika
     else if (awal === pilih[2]) {
       try {
         if (namaFile && namaFile.endsWith('.js')) {
@@ -110,8 +108,7 @@ module.exports = {
         api.sendMessage(`Gagal memuat file: ${error.message}`, event.threadID);
       }
     }
-
-    // LoadAll Logika
+      
     else if (awal === pilih[3]) {
   try {
     const files = fs.readdirSync(folderPath).filter(file => file.endsWith('.js')); 
