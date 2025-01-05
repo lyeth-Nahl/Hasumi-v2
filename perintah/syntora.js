@@ -30,10 +30,11 @@ module.exports = {
       const splitText = text.split(" ");
       if (splitText[0] === "delete" && splitText[1]) {
         const targetID = splitText[1];
+        const userInfo = await api.getUserInfo(targetID);
         if (memoData[targetID]) {
           delete memoData[targetID];
           fs.writeFileSync(memo, JSON.stringify(memoData, null, 2));
-          return api.sendMessage(`Riwayat percakapan untuk ID ${targetID} berhasil dihapus!`, event.threadID, event.messageID);
+          return api.sendMessage(`Riwayat percakapan dengan ${userInfo[targetID].name} berhasil dihapus!`, event.threadID, event.messageID);
         } else {
           return api.sendMessage(`Tidak ditemukan riwayat untuk ID ${targetID}.`, event.threadID, event.messageID);
       }
