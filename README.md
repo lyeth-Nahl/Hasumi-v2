@@ -1,6 +1,6 @@
 ![syntora](https://raw.githubusercontent.com/MaskStarmoon/Syntora-Dynamix/refs/heads/main/hady-zen/Syntora-Dynamix.png) 
 
-<h1 align="center">𝗔𝗹𝘆𝗮 𝗞𝘂𝗷𝗼𝘂 ♡</h1>
+<h1 align="center">𝗦𝘆𝗻𝘁𝗼𝗿𝗮 𝗗𝘆𝗻𝗮𝗺𝗶𝘅</h1>
 
 > Personal Chatbot messenger by hady and saveng <br />
 
