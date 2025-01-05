@@ -1,10 +1,10 @@
 const axios = require('axios');
 const apiUrl = 'https://rangestudio.wuaze.com/endpoint/user_api.php'; 
 
-async function getUserData(realId) {
+async function getUserData(realID) {
   try {
     const response = await axios.get(apiUrl, {
-      params: { real_id: realId },
+      params: { real_id: realID },
     });
     return response.data;
   } catch (error) {
@@ -12,10 +12,10 @@ async function getUserData(realId) {
   }
 }
 
-async function createUserData(realId) {
+async function createUserData(realID) {
   try {
     const response = await axios.get(apiUrl, {
-      params: { real_id: realId },
+      params: { real_id: realID },
     });
     return response.data;
   } catch (error) {
