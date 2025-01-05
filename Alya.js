@@ -12,6 +12,7 @@
  const { awalan, nama, admin, proxy, port, notifKey } = require('./config.json');
  global.Syntora.config = require("./config.json");
  const { kuldown } = require('./hady-zen/kuldown');
+ const { getUserData, createUserData } = require('./db-konek.js'); 
 
 async function notifErr(notif) { 
   try { 
