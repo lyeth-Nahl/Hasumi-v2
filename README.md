@@ -6,12 +6,12 @@
 
 ## 𝗔𝗗𝗠𝗜𝗡 ♡
 
-• Nama: Hadi pranata <br />
-• Facebook: https://facebook.com/hadi.zen.in <br />
-• Instagram: https://instagram.com/hady.zen.in <br>
-• Whatsapp
-```wa
-081262260170
+• Nebula & Shenix Team
+```nebula
+https://www.facebook.com/messages/t/6908687869245827/
+```
+```shenix
+Comming Soon.
 ```
 
 ## INSTALL ♡
@@ -41,4 +41,4 @@ https://www.mediafire.com/file/5sysgnwy53j2mo9/cookie-editor-chrome-all-permissi
 npm start
 ```
 
-# Alya-Kujou
+# Syntora-Dynamix
