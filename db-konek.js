@@ -9,7 +9,6 @@ async function getUserData(realId) {
     return response.data;
   } catch (error) {
     console.error('Error getting user data:', error.message);
-    return { error: 'Gagal mengambil data pengguna' };
   }
 }
 
@@ -21,7 +20,6 @@ async function createUserData(realId) {
     return response.data;
   } catch (error) {
     console.error('Error creating user data:', error.message);
-    return { error: 'Gagal membuat data pengguna baru' };
   }
 }
 
