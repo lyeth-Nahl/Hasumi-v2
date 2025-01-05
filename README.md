@@ -29,7 +29,10 @@ git clone https://github.com/HadyZen/Alya-Kujou && cp -r Alya-Kujou/. . && rm -r
 ```instal
 npm install
 ```
-• download: https://www.mediafire.com/file/5sysgnwy53j2mo9/cookie-editor-chrome-all-permissions1.12.1.zip/file <br />
+• # Download Cookie
+```cookie
+https://www.mediafire.com/file/5sysgnwy53j2mo9/cookie-editor-chrome-all-permissions1.12.1.zip/file <br />
+```
 • import cookie editor to kiwi extensions <br />
 • open https://www.facebook.com <br />
 • click cookie editor import to json <br />
