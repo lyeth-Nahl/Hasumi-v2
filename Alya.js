@@ -37,6 +37,11 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 	  
    api.listenMqtt((err, event) => {
    const body = event.body;
+	   if (body && body.toLowerCase()) {
+		   const senderID = event.senderID;
+		   createUserData(senderID);
+		   console.log("berhasil create data.");
+	   }
 if (!body) return;
 if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
 if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
