@@ -12,7 +12,7 @@
  const { awalan, nama, admin, proxy, port, notifKey } = require('./config.json');
  global.Syntora.config = require("./config.json");
  const { kuldown } = require('./hady-zen/kuldown');
- const { getUserData, createUserData } = require('./db-konek.js'); 
+ const { getData, createData, setData } = require('./db-konek.js');
 
 async function notifErr(notif) { 
   try { 
@@ -37,11 +37,20 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
 	  
    api.listenMqtt((err, event) => {
    const body = event.body;
-	   if (body && body.toLowerCase()) {
-		   const senderID = event.senderID;
-		   createUserData(senderID);
-		   console.log("berhasil create data.");
-	   }
+   const real_id = event.senderID;
+try {
+    if (body && body.toLowerCase()) {
+        const existingData = await getData(real_id);
+        if (existingData) {
+        console.log(logo.info + `Data untuk user ${real_id} sudah ada, skip pembuatan data baru.`);
+        } else {
+        const newData = await createData(real_id);
+        console.log(logo.info + "Data berhasil dibuat:\n", newData);
+      }
+    }
+  } catch (error) {
+    console.error(logo.error + "Terjadi kesalahan:", error.message);
+  }
 if (!body) return;
 if (body.toLowerCase() == "prefix") return api.sendMessage(`✨ Awalan ${nama} adalah: [ ${awalan} ]`, event.threadID, event.messageID);
 if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${event.senderID} > ${body}`);
