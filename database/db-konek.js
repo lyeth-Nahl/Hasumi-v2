@@ -1,5 +1,5 @@
 const axios = require('axios');
-const BASE_URL = 'https://botdatabase-c6ebb-default-rtdb.firebaseio.com/';
+const BASE_URL = global.Syntora.db-url;
 
 const getData = async (real_id) => {
   try {
