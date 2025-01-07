@@ -13,6 +13,8 @@
  global.Syntora.config = require("./config.json");
  const { kuldown } = require('./hady-zen/kuldown');
  const { getData, createData, setData } = require('./database/db-konek.js');
+ global.Syntora.getData = getData;
+ global.Syntora.setData = setData;
 
 async function notifErr(notif) { 
   try { 
