@@ -1,7 +1,12 @@
 {
   "nama": "Syntora Dynamix", 
   "awalan": "/",
-  "admin": ["100082154359331", ""],
+  "admin": [
+    "100082154359331",
+    "100077377805039",
+    "100088785078778",
+    "100088085177610"
+  ],
   "host": "103.179.217.242",
   "port": 8080,
   "dbUrl": "isi ini dengan url realtime firebase mu",
