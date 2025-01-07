@@ -82,14 +82,14 @@ if (!body.startsWith(awalan) || body == " ") return console.log(logo.pesan + `${
    if (kuldown(event.senderID, config.nama, config.kuldown) == 'hadi') { 
 	   
 if (config.peran == 0 || !config.peran) {
-    await Alya({ api, event, args, bhs });
+    await Alya({ api, event, args, bhs, Syntora.getData, Syntora.setData });
     return;
 }
 if ((config.peran == 2 || config.peran == 1) && admin.includes(event.senderID) || config.peran == 0) {
-    await Alya({ api, event, args, bhs });
+    await Alya({ api, event, args, bhs, Syntora.getData, Syntora.setData });
     return;
 } else if (config.peran == 1 && ff.includes(event.senderID) || config.peran == 0) {
-    await Alya({ api, event, args, bhs });
+    await Alya({ api, event, args, bhs, Syntora.getData, Syntora.setData });
     return;
 } else { 
     api.setMessageReaction("❕", event.messageID);
