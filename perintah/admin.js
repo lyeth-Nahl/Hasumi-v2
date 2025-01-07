@@ -29,14 +29,14 @@ module.exports = {
                 id: adminID,
                 tag: name
               });
-              nama += name + '\n';
+              nama += "@" + name + '\n';
             } else {
               console.log(`Nama pengguna dengan ID ${adminID} tidak ditemukan.`);
             }
           }
 
           api.sendMessage({
-            body: "𝓛𝓲𝓼𝓽 𝓐𝓭𝓶𝓲𝓷\n" + `@${nama}`, 
+            body: "𝓛𝓲𝓼𝓽 𝓐𝓭𝓶𝓲𝓷\n" + `${nama}`, 
             mentions: mentions
           }, event.threadID);
         } catch (error) {
