@@ -1,5 +1,5 @@
 const axios = require('axios');
-const BASE_URL = global.Syntora.db-url;
+const BASE_URL = global.Syntora.dbUrl;
 
 const getData = async (real_id) => {
   try {
