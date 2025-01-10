@@ -4,25 +4,26 @@ module.exports = {
     penulis: "Range", 
     kuldown: 10,   
     peran: 2,      
-    tutor: "<kosong/tag>"  
+    tutor: "eval code mu"  
   }, 
   Alya: async function ({ api, event, args }) {
     function output(msg) {
-      if (typeof msg == "number" || typeof msg == "boolean" || typeof msg == "function")
+      if (typeof msg === "number" || typeof msg === "boolean" || typeof msg === "function") {
         msg = msg.toString();
-      else if (msg instanceof Map) {
+      } else if (msg instanceof Map) {
         let text = `Map(${msg.size}) `;
         text += JSON.stringify(mapToObj(msg), null, 2);
         msg = text;
-      }
-      else if (typeof msg == "object")
+      } else if (typeof msg === "object") {
         msg = JSON.stringify(msg, null, 2);
-      else if (typeof msg == "undefined")
+      } else if (typeof msg === "undefined") {
         msg = "undefined";
-
-      api.sendMessage(msg, event.threadID);  
+      }
+      api.sendMessage(msg, event.threadID, event.messageID);
     }
-    
+    function out(msg) {
+      output(msg);
+    }
     function mapToObj(map) {
       const obj = {};
       map.forEach(function (v, k) {
@@ -30,18 +31,13 @@ module.exports = {
       });
       return obj;
     }
-    
-    if (args[0]) {
-      const code = args.join(" ").slice(4, -1); 
-      
-      try {
-        const result = eval(code); 
-        output(result); 
-      } catch (err) {
-        api.sendMessage("❌ Terjadi kesalahan: " + err.message, event.threadID);
-      }
-    } else {
-      api.sendMessage("❌ Format perintah yang kamu gunakan salah! Gunakan: /eval out(<kode yang ingin dijalankan>)", event.threadID);
+    if (args.length === 0) return api.sendMessage("❌ Format perintah salah! Gunakan: /eval <kode yang ingin dijalankan>", event.threadID, event.messageID);
+    const code = args.join(" ");
+    try {
+      const result = await eval(code);
+      output(result); 
+    } catch (err) {
+      api.sendMessage(`❌ Terjadi kesalahan:\n${err.message}`, event.threadID, event.messageID);
     }
-  }
+  },
 };
