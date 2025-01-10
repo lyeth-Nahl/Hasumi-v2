@@ -39,7 +39,6 @@ module.exports = {
       output(result); 
       } else {
         await eval(code); 
-        api.sendMessage("✅ Kode berhasil dijalankan.", event.threadID, event.messageID);
       }
     } catch (err) {
       api.sendMessage(`❌ Terjadi kesalahan:\n${err.message}`, event.threadID, event.messageID);
