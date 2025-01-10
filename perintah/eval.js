@@ -41,5 +41,5 @@ module.exports = {
       api.sendMessage(`❌ Terjadi kesalahan:\n${err.message}`, event.threadID, event.messageID);
       }
     }
-  },
+  }
 };
