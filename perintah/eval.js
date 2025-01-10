@@ -31,7 +31,7 @@ module.exports = {
       return obj;
     }
     
-    if (args[0] && args[0].startsWith("out(")) {
+    if (args[0]) {
       const code = args.join(" ").slice(4, -1); 
       
       try {
