@@ -34,12 +34,7 @@ module.exports = {
     if (args.length === 0) return api.sendMessage("❌ Format perintah salah! Gunakan: /eval <kode yang ingin dijalankan>", event.threadID, event.messageID);
     const code = args.join(" ");
     try {
-      if (code.startsWith("out(")) {
-      const result = await eval(code);
-      output(result); 
-      } else {
-        await eval(code); 
-      }
+      await eval(code); 
     } catch (err) {
       api.sendMessage(`❌ Terjadi kesalahan:\n${err.message}`, event.threadID, event.messageID);
     }
