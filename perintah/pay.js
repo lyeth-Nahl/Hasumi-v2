@@ -4,7 +4,7 @@ module.exports = {
     penulis: "Range",
     kuldown: 10,
     peran: 0,
-    tutor: "pay <id> <jumlah>"
+    tutor: "pay <fakeID penerima> <jumlah>"
   },
 
   Alya: async function ({ api, event, args, getData, setData, getAllData }) {
@@ -13,37 +13,34 @@ module.exports = {
       const targetFakeID = parseInt(args[0]);
       const amount = parseInt(args[1]);
       if (!targetFakeID || !amount) return api.sendMessage("Format tidak valid. Gunakan:\npay <fakeID penerima> <jumlah>", threadID, messageID);
-      if (isNaN(targetFakeID) || isNaN(amount) || amount <= 0) return api.sendMessage("Harap masukkan ID dan jumlah yang valid. Jumlah harus lebih dari 0.", threadID, messageID);
+      if (isNaN(targetFakeID) || isNaN(amount) || amount <= 0) return api.sendMessage("Harap masukkan ID dan jumlah yang valid. Jumlah harus lebih dari 0.",threadID,messageID);
       const senderData = await getData(senderID);
-      if (!senderData || !senderData.money) {
-        return api.sendMessage(
-          "Data Anda tidak ditemukan. Pastikan Anda memiliki akun yang valid.",
-          threadID,
-          messageID
-        );
-      }
+      if (!senderData || !senderData.money) return api.sendMessage("Data Anda tidak ditemukan. Pastikan Anda memiliki akun yang valid.", threadID, messageID);
       if (senderData.money < amount) return api.sendMessage(`Anda tidak memiliki cukup uang. Saldo Anda: ${senderData.money}.`, threadID, messageID);
       const allUsers = await getAllData();
       const receiverEntry = Object.entries(allUsers).find(
         ([realID, userData]) => userData.fakeID === targetFakeID
       );
-      if (!receiverEntry) return api.sendMessage("ID penerima tidak ditemukan. Pastikan ID yang Anda masukkan benar.", threadID, messageID);
+      if (!receiverEntry) {
+        return api.sendMessage(
+          "ID penerima tidak ditemukan. Pastikan ID yang Anda masukkan benar.",
+          threadID,
+          messageID
+        );
+      }
       const [receiverRealID, receiverData] = receiverEntry;
+      const userInfo = await api.getUserInfo(receiverRealID);
+      const receiverName = userInfo[receiverRealID]?.name || "Pengguna";
+      const senderInfo = await api.getUserInfo(senderID);
+      const senderName = senderInfo[senderID]?.name || "Pengguna";
+
       senderData.money -= amount;
       receiverData.money = (receiverData.money || 0) + amount;
-      await setData(senderID, senderData);
-      await setData(receiverRealID, receiverData);      
-       const userInfo = api.getUserInfo(receiverRealID);
-      api.sendMessage(
-        `Berhasil mengirim ${amount} money ke ${userInfo[receiverRealID].name} dengan ID : ${targetFakeID}`,
-        threadID,
-        messageID
-      );
 
-      api.sendMessage(
-        `Anda menerima ${amount} money dari ${userInfo[senderID].name}. Saldo Anda sekarang: ${receiverData.money}.`,
-        receiverRealID
-      );
+      await setData(senderID, senderData);
+      await setData(receiverRealID, receiverData);
+      api.sendMessage(`Berhasil mengirim ${amount} money ke ${receiverName} dengan ID: ${targetFakeID}.`, threadID, messageID);
+      api.sendMessage(`Anda menerima ${amount} money dari ${senderName} dengan ID ${senderID}. Saldo Anda sekarang: ${receiverData.money}.`, receiverRealID);
     } catch (error) {
       console.error("Terjadi kesalahan dalam proses pembayaran:", error.message);
       return api.sendMessage(
