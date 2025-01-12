@@ -42,8 +42,7 @@ module.exports = {
 
       api.sendMessage(
         `Anda menerima ${amount} money dari ${userInfo[senderID].name}. Saldo Anda sekarang: ${receiverData.money}.`,
-        receiverRealID, 
-        messageID
+        receiverRealID
       );
     } catch (error) {
       console.error("Terjadi kesalahan dalam proses pembayaran:", error.message);
