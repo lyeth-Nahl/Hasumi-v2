@@ -31,8 +31,8 @@ module.exports = {
       });
       return obj;
     }
-    if (args.length === 0) return api.sendMessage("❌ Format perintah salah! Gunakan: /eval <kode yang ingin dijalankan>", event.threadID, event.messageID);
     const code = args.join(" ");
+    if (!code) return api.sendMessage("❌ Format perintah salah! Gunakan: /eval <kode yang ingin dijalankan>", event.threadID, event.messageID);
     try {
       await eval(code); 
     } catch (err) {
