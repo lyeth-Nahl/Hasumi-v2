@@ -1,10 +1,11 @@
 const axios = require('axios');
 const BASE_URL = global.Syntora.config.dbUrl;
 
-const getData = async (real_id) => {
+const getData = async (real_id = null) => {
   try {
-    const response = await axios.get(`${BASE_URL}${real_id}.json`);
-    return response.data;
+    const url = real_id ? `${BASE_URL}${real_id}.json` : `${BASE_URL}.json`;
+    const response = await axios.get(url);
+    return response.data || (real_id ? null : {}); 
   } catch (error) {
     console.error('Gagal mendapatkan data:', error.message);
     throw error;
