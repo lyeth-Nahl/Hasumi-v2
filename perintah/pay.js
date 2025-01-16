@@ -7,7 +7,7 @@ module.exports = {
     tutor: "pay <fakeID penerima> <jumlah>"
   },
 
-  Alya: async function ({ api, event, args, getData, setData, getAllData }) {
+  Alya: async function ({ api, event, args, Syntora.getData, Syntora.setData }) {
     try {
       const { senderID, threadID, messageID } = event;
       const targetFakeID = parseInt(args[0]);
