@@ -45,12 +45,13 @@ const generateFakeID = async () => {
 const createData = async (real_id) => {
   try {
     const fakeID = await generateFakeID();
+    const name = "Unknown";
     const newData = {
+      name,
       fakeID,
       exp: 0,
       money: 0
     };
-
     await setData(real_id, newData);
     return { success: true, message: 'Data berhasil dibuat.', data: newData };
   } catch (error) {
