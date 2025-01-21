@@ -6,7 +6,7 @@ global.Syntora = global.Syntora || {};
 global.Syntora.config = require("./config.json");
 
 function hady() {
-  const child = spawn("node Alya.js", {
+  const child = spawn("node Syntora.js", {
     cwd: __dirname,
     stdio: "inherit",
     shell: true
