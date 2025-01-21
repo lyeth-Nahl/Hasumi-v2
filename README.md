@@ -6,7 +6,7 @@
 
 ## 𝗔𝗗𝗠𝗜𝗡 🜲
 
-• Nebula & Shenix Team
+• Nebula Team & Shenix Team
 ```nebula
 https://www.facebook.com/messages/t/6908687869245827/
 ```
