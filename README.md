@@ -43,3 +43,4 @@ npm start
 
 # Syntora-Dynamix
 ![syntora](https://skillicons.dev/icons?i=html,css,js,nodejs,bash&theme=dark) 
+Donation: [donate](https://trakteer.id/Saveng-Fox/tip) <br />
