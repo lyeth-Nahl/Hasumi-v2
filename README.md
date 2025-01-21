@@ -4,7 +4,7 @@
 
 > Personal Chatbot messenger by hady and saveng <br />
 
-## 𝗔𝗗𝗠𝗜𝗡 ♡
+## 𝗔𝗗𝗠𝗜𝗡 🜲
 
 • Nebula & Shenix Team
 ```nebula
