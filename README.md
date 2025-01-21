@@ -42,3 +42,4 @@ npm start
 ```
 
 # Syntora-Dynamix
+![syntora](https://skillicons.dev/icons?i=html,css,js,nodejs,bash&theme=dark) 
