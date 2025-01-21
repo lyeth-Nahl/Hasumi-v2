@@ -26,7 +26,6 @@
   },
   "scripts": {
     "start": "node index.js", 
-    "dev": "node index.js", 
-    "restar": "node restar.js"
+    "dev": "node index.js"
   }
 }
