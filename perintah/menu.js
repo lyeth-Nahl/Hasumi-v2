@@ -73,7 +73,7 @@ module.exports = {
       api.sendMessage(`Perintah ${args[0]} tidak ada senpai.`, event.threadID, event.messageID);
     } else if (!args[0]) {
       const description = `Gunakan ${awalan}menu <nama perintah> untuk melihat deskripsi lengkapnya, Official Bot ${nama}.`;
-      const message = `# 𝗗𝗮𝗳𝘁𝗮𝗿 𝗣𝗲𝗿𝗶𝗻𝘁𝗮𝗵\n\n*USER*\n${commandList.user.join('\n') || 'Tidak ada perintah.'}\n\n*ADMIN GROUPS*\n${commandList.adminGroups.join('\n') || 'Tidak ada perintah.'}\n\n*ADMIN BOT*\n${commandList.adminBot.join('\n') || 'Tidak ada perintah.'}\n\n\n${description}`;
+      const message = `# 𝗗𝗮𝗳𝘁𝗮𝗿 𝗣𝗲𝗿𝗶𝗻𝘁𝗮𝗵\n\n*USER*\n${commandList.user.join(', ') || 'Tidak ada perintah.'}\n\n*ADMIN GROUPS*\n${commandList.adminGroups.join(', ') || 'Tidak ada perintah.'}\n\n*ADMIN BOT*\n${commandList.adminBot.join(', ') || 'Tidak ada perintah.'}\n\n\n${description}`;
       api.sendMessage(message, event.threadID, event.messageID);
     }
   }
