@@ -11,7 +11,7 @@
   "host": "103.179.217.242",
   "port": 8080,
   "dbUrl": "isi ini dengan url realtime firebase mu",
-  "notiKey": "3Eibi2gX852k5aU7",
+  "notiKey": "isi dengan key dari call me bot",
   "setting": {
     "forceLogin": true,
     "listenEvents": true,
