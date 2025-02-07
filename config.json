@@ -11,5 +11,16 @@
   "host": "103.179.217.242",
   "port": 8080,
   "dbUrl": "isi ini dengan url realtime firebase mu",
-  "notiKey": "3Eibi2gX852k5aU7"
+  "notiKey": "3Eibi2gX852k5aU7",
+  "setting": {
+    "forceLogin": true,
+    "listenEvents": true,
+    "updatePresence": true,
+    "listenTyping": true,
+    "logLevel": "error",
+    "selfListen": false,
+    "selfListenEvent": true,
+    "autoMarkDelivery": false,
+    "autoReconnect": false
+ }
 }
