@@ -26,6 +26,10 @@ async function notifErr(notif) {
   }
 }
 
+async function loadC() {
+  fs.readFileSync('config.json');
+}
+setInterval(function() { loadC(); }, 30000);
 if (!akun || akun.length < 0) return console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
 const zen = { host: proxy, port: port };
 login({appState: JSON.parse(akun, zen)}, setting, (err, api) => {
