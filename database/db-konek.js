@@ -50,7 +50,8 @@ const createData = async (real_id) => {
       name,
       fakeID,
       exp: 0,
-      money: 0
+      money: 0,
+      banned: 0
     };
     await setData(real_id, newData);
     return { success: true, message: 'Data berhasil dibuat.', data: newData };
