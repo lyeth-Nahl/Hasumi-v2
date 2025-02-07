@@ -6,11 +6,12 @@ module.exports = {
   config: {
     nama: "pin",
     penulis: "Range",
-    kuldown: 10,
+    kuldown: 15,
     peran: 0,
-    tutor: "<kata kunci> <number>",
+    tutor: "pin <kata kunci> <number>",
   },
   Alya: async function ({ api, event, args }) {
+    api.sendMessage("Tunggu bentar yaa...", event.threadID, event.messageID);
     try {
       if (args.length < 2) return api.sendMessage("Format salah! Gunakan: /pin <kata kunci> <number>\nContoh: /pin pemandangan 3", event.threadID, event.messageID);
       const jumlahGambar = parseInt(args.pop(), 10);
@@ -50,7 +51,7 @@ module.exports = {
         }
       }
       if (attachments.length > 0) {
-        await api.sendMessage({ attachment: attachments }, event.threadID, event.messageID);
+        await api.sendMessage({ body: `ini gambar ${kataKunci} nya^^`, attachment: attachments }, event.threadID, event.messageID);
         attachments.forEach((file) => {
           file.destroy();
           fs.unlinkSync(file.path);
