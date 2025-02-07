@@ -45,6 +45,15 @@ console.log(logo.login + 'Mulai menerima pesan dari pengguna.');
    const body = event.body;
    const real_id = event.senderID;
 try {
+      const userData = await getData(real_id);
+      if (userData && userData.banned === 1) {
+        console.log(logo.warn + `User ${real_id} dibanned, tidak merespons.`);
+        return;
+      }
+      } catch (error) {
+     //skip console.error(logo.error + error.message);
+      }
+try {
     if (body && body.toLowerCase()) {
         const existingData = await getData(real_id);
         if (existingData) {
