@@ -9,7 +9,7 @@
  const path = require("path");
  const akun = fs.readFileSync('akun.txt', 'utf8');
  const { log_bhs, code_bhs } = require('./bahasa/bahasa');
- const { awalan, nama, admin, proxy, port, notifKey } = require('./config.json');
+ const { awalan, nama, admin, proxy, port, notifKey, setting } = require('./config.json');
  global.Syntora.config = require("./config.json");
  const { kuldown } = require('./hady-zen/kuldown');
  const { getData, createData, setData } = require('./database/db-konek.js');
@@ -28,7 +28,7 @@ async function notifErr(notif) {
 
 if (!akun || akun.length < 0) return console.log(logo.error + 'Harap masukkan cookie terlebih dahulu.');
 const zen = { host: proxy, port: port };
-login({appState: JSON.parse(akun, zen)}, (err, api) => {
+login({appState: JSON.parse(akun, zen)}, setting, (err, api) => {
    if(err) { 
 	   console.log(logo.error + `Terjadi kesalahan saat login: ${err.message}`);
 	   notifErr(`Terjadi kesalahan saat login: ${err.message}`);
